@@ -1,0 +1,55 @@
+.product-detals-display{
+    margin-top: 4rem;
+
+    
+
+    & > .container{
+        & > h3{
+
+            text-align: center;
+
+            @include lg{
+                text-align: left;
+            }
+        }
+        & > .bc-grid{
+
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 40px;
+
+            @include md {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include lg {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            @include xl {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .product-images{
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include lg {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            img{
+                margin: 1rem 0 1rem 0;
+
+                @include lg {
+                    margin: 0rem;
+                }
+            }
+        }
+    }
+}

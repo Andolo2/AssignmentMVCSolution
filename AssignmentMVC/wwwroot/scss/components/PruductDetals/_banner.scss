@@ -1,0 +1,59 @@
+.banner{
+    position: relative;
+    & > img{
+        display: none;
+
+        @include md {
+            display: block;
+            width: 100%;
+          
+        }
+        @include lg {
+            
+        }
+        @include xl {
+            
+        }
+        
+    }
+
+    & > .container{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        
+        
+
+        & > p{
+            font-family: $font-poppins;
+            color: $color-dark-1;
+        }
+
+        & > h1{
+            font-family: $font-poppins;
+            color: $color-dark-1;
+        }
+
+
+
+        @include md {
+            position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+          
+        }
+        @include lg {
+            
+        }
+        @include xl {
+            
+        }
+        
+    }
+
+}

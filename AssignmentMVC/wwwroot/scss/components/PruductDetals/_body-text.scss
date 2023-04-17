@@ -1,0 +1,58 @@
+.product-detals-body{
+
+    & > .container{
+
+
+        & > h3{
+            font-family: $font-poppins;
+            font-weight: $font-weight-semibold;
+
+        }
+
+        & > .bc-grid{
+           
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 40px;
+
+            
+
+            .body-text{
+                
+              & > p {
+
+                text-align: center;
+                font-family: $font-roboto;
+                font-weight: $font-weight-regular;
+                font-size: 16px;
+
+                @include lg{
+                        text-align: left;
+                    }
+              }
+
+                 
+            }
+
+            .body-image{
+
+                 img{
+                    width: 350px;
+
+                    @include lg{
+                        width: 100%;
+                    }
+                 }
+            }
+    
+            @include md {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include lg {
+                grid-template-columns: repeat(2, 1fr);
+            }
+           
+        }
+    }
+}

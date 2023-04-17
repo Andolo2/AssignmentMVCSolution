@@ -1,0 +1,36 @@
+.signup{
+
+    margin: 3rem 3rem 3rem 3rem;
+
+    @include lg{
+        margin: 5rem 5rem 5rem 5rem;
+    }
+    & > .container{
+       
+        background-color: rgb(252, 249, 249);
+      
+
+        h3{
+          
+        }
+
+        .signupform{
+            display: flex;
+            flex-direction: column;
+
+            #flexCheckDefault{
+                margin: 2rem 0 1rem 0rem;
+            }
+
+            & > button{
+                background-color: $color-theme-1;
+                color: $color-white;
+                border: none;
+
+                @include lg{
+                    width: 10%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.top-selling{
+
+    .container-fluid {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        
+
+        & > .bc-grid{
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 40px;
+            justify-content: center;
+           
+
+            
+        @include md {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include lg {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @include xl {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .collection-item{
+            
+            & > .body{
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+                color: $color-dark-2;
+                margin-top: 10px;
+                font-family: $font-poppins;
+                padding: 0 10px 10px 10px;
+
+                .info {
+                    padding: 2px;
+        
+                    .title {
+                        font-size: 16px;
+                        font-weight: $font-weight-medium;
+                    }
+                    .price {
+                        font-size: 12px;
+                    }
+                }
+        
+                .tocart {
+                    padding: 2px;
+                    font-size: 12px;
+                    color: $color-dark-2;
+        
+                    &:hover {
+                        color: $color-dark-4;
+                    }
+                }
+            
+            }
+        }
+
+        }
+    }
+}
+

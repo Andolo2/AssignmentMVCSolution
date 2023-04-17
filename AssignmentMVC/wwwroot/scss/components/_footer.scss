@@ -1,0 +1,19 @@
+.footer{
+    background-color: $color-dark-5;
+    
+
+    .footer-text{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+
+        & > p{
+            font-size: 16px;
+            font-family: $font-poppins;
+            font-weight: $font-weight-semibold;
+            color: $color-white;
+        }
+    }
+}

@@ -1,0 +1,207 @@
+.Product-details{
+
+ & >.container{
+  
+
+    & > .bc-grid{
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+        justify-content: center;
+       
+        .product-showcase{
+            
+            .product-showcase-large{
+                
+                img{
+                    width: 360px;
+
+                    @include lg{
+                        width: 100%;
+                    }
+                }
+            }
+
+            .product-showcase-small{
+                display: none;
+                
+
+                @include lg{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 1rem;
+                   
+                    
+                }
+            }
+
+           
+        }
+
+        .add-product{
+  
+            .text-area{
+               & > h3 {
+                   font-family: $font-poppins;
+                   font-size: 24px;
+                   font-weight: $font-weight-medium;
+                   color: $color-dark-2;
+                   text-align: center;
+
+                   @include lg{
+                    text-align:left ;
+                   }
+               }
+
+               & > p{
+                    font-family: $font-roboto;
+                    font-size: 16px;
+                    font-weight: $font-weight-regular;
+                    text-align: center;
+
+                    @include lg{
+                        text-align:left ;
+                       }
+               }
+            }
+
+            .stars{
+               
+                display: flex;
+                justify-content: center;
+
+                @include lg{
+                    justify-content: flex-start;
+                   }
+                
+                .fa-star{
+                    color: $color-yellow;
+                    
+                    
+                }
+
+                & > p{
+                    font-family: $font-roboto;
+                    font-size: 16px;
+                    font-weight: $font-weight-regular;
+                    color: $color-dark-2;
+                    padding-left:1rem ;
+                }
+                
+            }
+
+            .price{
+                text-align: center;
+                margin: 1rem 0 1rem 0;
+
+                @include lg {
+                    text-align: left;
+                }
+            }
+
+            .num-input{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                @include lg {
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin: 1rem 0 1rem 0;
+                }
+                .input-group{
+                    width: 30%;
+
+                    
+                    
+                }
+                & > .addtocart{
+                    background-color: $color-theme-1;
+                    border: none;
+                    margin-left: 2rem;
+                    color: $color-white;
+
+                   
+                }
+            }
+
+            .colored-dots{
+
+                #red { color: $color-theme-1}
+                #yellow {color: $color-yellow }
+                #green {color: $color-green;}
+
+                display: none;
+
+                @include lg {
+                  display: block;
+                  margin: 1rem 0 1rem 0;
+                }
+            }
+
+            .wishlist{
+                text-align: center;
+                margin: 2rem;
+
+                @include lg {
+                    text-align: left;
+                    margin: 1rem 0 1rem 0;
+                }
+
+                & > button{
+                    border: 1px solid $color-dark-3
+                }
+            }
+           }
+        
+    @include md {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include xl {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+ }
+
+ .four-options{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    margin: 2rem 0 2rem 0;
+
+    @include lg {
+        display: flex;
+        width: 100%;
+        gap: 0;
+    }
+
+    .container-links{
+        
+        width: 100%;
+        color: $color-dark-3;
+        border: 1px solid rgba(189, 182, 182, 0.5);
+        text-align: center;
+
+        p{
+            margin: 1rem 0.5rem 1rem 0.5rem;
+            text-decoration: none;
+
+        &:hover{
+            background-color: $color-theme-1;
+            color: $color-white;
+            text-decoration: none;
+        }
+    }
+ }
+
+
+}
+ }
+}
