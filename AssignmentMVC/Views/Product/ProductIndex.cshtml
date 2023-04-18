@@ -27,7 +27,7 @@
 
                 foreach (var product in products)
                 {
-                    <a asp-controller="product" asp-action="Details" asp-route-id="@product.Id class="collection-item">
+                    <a asp-controller="/products" asp-action="details" asp-route-id="@product.Id" class="collection-item">
                         <img src="@product.ImageUrl" alt="">
                         <div class="body">
                             <div class="info">
@@ -35,7 +35,7 @@
                                 <div class="price">@product.Price</div>
                             </div>
                             <i class="tocart fa-regular fa-cart-plus"></i>
-                            <a asp-controller="product" asp-action="Details" asp-route-id="@product.Id">Details</a>
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id" >Details</a>
 
 
 

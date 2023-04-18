@@ -46,7 +46,7 @@ namespace AssignmentMVC.Controllers
             _context.Products.Add(entity);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("HomeIndex", "Home");
         }
 
         public async Task<IActionResult> Delete(int id)

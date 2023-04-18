@@ -994,3 +994,13 @@ header .toggle .btn-toggle {
     width: 10%;
   }
 }
+
+.DisplayProductDetails > .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.DisplayProductDetails > .container > img {
+  width: 300px;
+  height: 300px;
+}

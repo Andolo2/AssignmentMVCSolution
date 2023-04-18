@@ -7,7 +7,10 @@
     var product = await ProductService.GetByIdAsync(productId);
 }
 
-<h1>@product.Title</h1>
-<img src="@product.ImageUrl" alt="">
-
-<p>Price: @product.Price</p>
+<div class="DisplayProductDetails">
+    <div class="container">
+        <h1>@product.Title</h1>
+        <img src="@Url.Content(@product.ImageUrl)" alt="">
+        <p>Price: @product.Price</p>
+    </div>
+</div>
