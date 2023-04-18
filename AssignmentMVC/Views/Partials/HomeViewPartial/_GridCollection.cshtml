@@ -1,0 +1,37 @@
+﻿@model GridCollectionViewModel
+
+@if (Model != null)
+{
+
+    <!--BestCollection component START-->
+    <section class="best-collection">
+        <div class="container">
+            <div class="bc-top">
+                <h2 class="bc-title">@Model.Title</h2>
+
+                @if (Model.Categories != null)
+                {
+                    <ul class="bc-link-collection">
+                        @foreach (var category in Model.Categories)
+                        {
+                            <li class="bc-links">@category</li>
+
+                        }
+                    </ul>
+                }
+
+            </div>
+
+            @if (Model.GridItems != null)
+            {
+                <div class="bc-grid">
+                    @foreach (var item in Model.GridItems)
+                    {
+                        <partial name="/Views/Partials/Reusable/GridCollectionItem.cshtml" model="item" />
+                    }
+                </div>
+            }
+        </div>
+    </section>
+    <!-- BestCollection component END -->
+}

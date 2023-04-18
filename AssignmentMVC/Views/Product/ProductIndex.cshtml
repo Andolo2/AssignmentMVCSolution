@@ -1,0 +1,49 @@
+﻿@using AssignmentMVC.Contexts;
+@using AssignmentMVC.Models;
+@using AssignmentMVC.Services.ProductServices;
+
+
+@model GridCollectionItemViewModel
+
+@inject ProductService ProductService
+
+@{
+    var products = ProductService.GetAllAsync().GetAwaiter().GetResult();
+}
+
+
+
+
+<div class="created-products">
+    <div class="container">
+
+        <a asp-controller="product" asp-action="register" class="NewProduct"><p>Create new</p></a>
+
+        <div class="bc-grid">
+
+
+            @if (products != null)
+            {
+
+                foreach (var product in products)
+                {
+                    <a asp-controller="product" asp-action="Details" asp-route-id="@product.Id class="collection-item">
+                        <img src="@product.ImageUrl" alt="">
+                        <div class="body">
+                            <div class="info">
+                                <div class="title">@product.Title</div>
+                                <div class="price">@product.Price</div>
+                            </div>
+                            <i class="tocart fa-regular fa-cart-plus"></i>
+                            <a asp-controller="product" asp-action="Details" asp-route-id="@product.Id">Details</a>
+
+
+
+                        </div>
+                    </a>
+                }
+            }
+
+        </div>
+    </div>
+</div>

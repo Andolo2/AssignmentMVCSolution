@@ -1,6 +1,9 @@
-﻿@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap";
-@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap";
-@import "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap";
+﻿@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap");
 html, body {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
@@ -10,44 +13,41 @@ html, body {
 
 a {
   text-decoration: none;
-  color: #fa3150;
+  color: #FA3150;
 }
-
 a:hover {
   text-decoration: underline;
-  color: #fa3150;
+  color: #FA3150;
 }
 
 button {
   padding: 10px 35px;
   font-family: "Poppins", sans-serif;
-  border: 1px solid #000;
-  background-color: rgba(0, 0, 0, 0);
-  color: #000;
+  border: 1px solid #000000;
+  background-color: transparent;
+  color: #000000;
   transition: all 0.2s;
 }
-
 button:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .btn-white {
   border: none;
-  background-color: #fff;
+  background-color: #FFFFFF;
   color: #292929;
 }
 
 .btn-theme {
   border: none;
-  background-color: #fa3150;
-  color: #fff;
+  background-color: #FA3150;
+  color: #FFFFFF;
 }
 
 header {
   padding: 15px 0;
 }
-
 @media (min-width: 992px) {
   header {
     padding: 30px 0;
@@ -58,7 +58,6 @@ header .container {
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "logo btntoggle" "menu menu";
 }
-
 @media (min-width: 992px) {
   header .container {
     grid-template-columns: 1fr 2fr;
@@ -68,12 +67,10 @@ header .container {
 header .logotype {
   grid-area: logo;
 }
-
 header .Menu {
   grid-area: menu;
   font-family: "Poppins", sans-serif;
 }
-
 @media (min-width: 992px) {
   header .Menu {
     display: flex;
@@ -84,7 +81,6 @@ header .Menu {
 header .Menu .MenuLinks {
   padding-top: 20px;
 }
-
 @media (min-width: 992px) {
   header .Menu .MenuLinks {
     padding-top: 0px;
@@ -96,7 +92,6 @@ header .Menu .MenuLinks > .links {
   margin: 10px 20px;
   padding: 10px;
 }
-
 @media (min-width: 992px) {
   header .Menu .MenuLinks > .links {
     display: inline-block;
@@ -105,9 +100,8 @@ header .Menu .MenuLinks > .links {
   }
 }
 header .Menu .MenuLinks > .links:hover {
-  color: #fa3150;
+  color: #FA3150;
 }
-
 header .Menu .MenuIcons {
   position: fixed;
   bottom: 0;
@@ -115,16 +109,13 @@ header .Menu .MenuIcons {
   right: 0;
   text-align: center;
 }
-
 header .Menu .MenuIcons > .links {
   margin-left: 15px;
-  color: #aeaeae;
+  color: #AEAEAE;
 }
-
 header .Menu .MenuIcons > .links:hover {
   color: #292929;
 }
-
 @media (min-width: 992px) {
   header .Menu .MenuIcons {
     position: static;
@@ -135,22 +126,20 @@ header .toggle {
   display: flex;
   justify-content: end;
 }
-
 header .toggle .btn-toggle {
   grid-area: btontoggle;
   transform: scale(1.5);
 }
-
 @media (min-width: 992px) {
   header .toggle .btn-toggle {
     display: none;
   }
 }
+
 .showcase {
-  background-color: #f3f2f2;
+  background-color: #F3F2F2;
   padding: 50px 0;
 }
-
 @media (min-width: 992px) {
   .showcase {
     padding: 60px 0 60px 0;
@@ -160,7 +149,6 @@ header .toggle .btn-toggle {
   display: block;
   text-align: center;
 }
-
 @media (min-width: 992px) {
   .showcase .container {
     display: flex;
@@ -172,7 +160,6 @@ header .toggle .btn-toggle {
   font-family: "Poppins", sans-serif;
   color: #292929;
 }
-
 @media (min-width: 992px) {
   .showcase .container .showcase-content {
     flex: 2;
@@ -186,7 +173,6 @@ header .toggle .btn-toggle {
   color: #292929;
   margin-bottom: 20px;
 }
-
 .showcase .container .showcase-content .showcase-title {
   font-family: "Poppins", sans-serif;
   color: #292929;
@@ -195,7 +181,6 @@ header .toggle .btn-toggle {
   line-height: 1.3;
   margin-bottom: 20px;
 }
-
 @media (min-width: 992px) {
   .showcase .container .showcase-content .showcase-title {
     font-size: 60px;
@@ -205,7 +190,6 @@ header .toggle .btn-toggle {
 .showcase .container > .showcase-image {
   display: none;
 }
-
 @media (min-width: 992px) {
   .showcase .container > .showcase-image {
     display: block;
@@ -213,10 +197,10 @@ header .toggle .btn-toggle {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   }
 }
+
 .best-collection {
   padding: 40px 0;
 }
-
 .best-collection .container .bc-title {
   text-align: center;
   font-family: "Poppins", sans-serif;
@@ -224,7 +208,6 @@ header .toggle .btn-toggle {
   font-size: 38px;
   color: #292929;
 }
-
 @media (min-width: 768px) {
   .best-collection .container .bc-title {
     font-size: 48px;
@@ -237,7 +220,6 @@ header .toggle .btn-toggle {
   margin: 0;
   padding: 0;
 }
-
 @media (min-width: 992px) {
   .best-collection .container .bc-link-collection {
     display: flex;
@@ -246,19 +228,16 @@ header .toggle .btn-toggle {
 .best-collection .container .bc-link-collection .bc-links {
   margin-right: 5px;
 }
-
 .best-collection .container .bc-link-collection .bc-links + li::before {
   content: "/";
   margin-right: 5px;
 }
-
 .best-collection .container .bc-grid {
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
 }
-
 @media (min-width: 768px) {
   .best-collection .container .bc-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -274,18 +253,17 @@ header .toggle .btn-toggle {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 .collection-item {
-  background-color: #fff;
+  background-color: #FFFFFF;
   text-decoration: none;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
-
 .collection-item img {
   width: 100%;
   height: auto;
 }
-
 .collection-item .body {
   display: flex;
   justify-content: space-between;
@@ -295,54 +273,47 @@ header .toggle .btn-toggle {
   font-family: "Poppins", sans-serif;
   padding: 0 10px 10px 10px;
 }
-
-.collection-item .body .info {
+.collection-item .body > .info {
   padding: 2px;
 }
-
-.collection-item .body .info .title {
+.collection-item .body > .info .title {
   font-size: 18px;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-
-.collection-item .body .info .price {
+.collection-item .body > .info .price {
   font-size: 16px;
 }
-
-.collection-item .body .tocart {
+.collection-item .body .fa-cart-plus {
   padding: 2px;
   font-size: 24px;
   color: #292929;
 }
-
-.collection-item .body .tocart:hover {
-  color: #aeaeae;
+.collection-item .body .fa-cart-plus:hover {
+  color: #AEAEAE;
 }
-
 .collection-item:hover {
   text-decoration: none;
 }
-
 @media (min-width: 1200px) {
-  .collection-item .tocart {
+  .collection-item .fa-cart-plus {
     display: none;
   }
-  .collection-item:hover .tocart {
+  .collection-item:hover .fa-cart-plus {
     display: block;
   }
 }
+
 .up-to-sale {
-  background-color: #faefef;
+  background-color: #FAEFEF;
   padding: 40px 0;
 }
-
 .up-to-sale .collection-grid {
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
 }
-
 @media (min-width: 768px) {
   .up-to-sale .collection-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -358,33 +329,28 @@ header .toggle .btn-toggle {
   justify-content: center;
   align-items: center;
 }
-
 .up-to-sale .collection-grid .collection-content > .container {
   text-align: center;
   padding: 40px;
 }
-
 .up-to-sale .collection-grid .collection-content > .container .title-red {
   font-family: "Poppins", sans-serif;
-  color: #fa3150;
+  color: #FA3150;
   font-size: 18px;
   font-weight: 700;
 }
-
 .up-to-sale .collection-grid .collection-content > .container .title {
   font-family: "Playfair Display", serif;
   font-weight: 700;
   font-size: 48px;
   color: #292929;
 }
-
 .up-to-sale .collection-grid .collection-content > .container .ingress {
   font-family: "Poppins", sans-serif;
   color: #292929;
   font-size: 24px;
   font-weight: 700;
 }
-
 .up-to-sale .collection-grid .collection-content > .container .text {
   margin-top: 20px;
   font-family: "Roboto", sans-serif;
@@ -392,7 +358,6 @@ header .toggle .btn-toggle {
   font-size: 16px;
   font-weight: 400;
 }
-
 .up-to-sale .collection-grid .collection-content > .container .link {
   display: block;
   margin-top: 30px;
@@ -403,7 +368,6 @@ header .toggle .btn-toggle {
   padding-left: 4rem;
   padding-right: 4rem;
 }
-
 .top-selling .container-fluid > .bc-grid {
   margin-top: 40px;
   display: grid;
@@ -411,7 +375,6 @@ header .toggle .btn-toggle {
   gap: 40px;
   justify-content: center;
 }
-
 @media (min-width: 768px) {
   .top-selling .container-fluid > .bc-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -436,34 +399,28 @@ header .toggle .btn-toggle {
   font-family: "Poppins", sans-serif;
   padding: 0 10px 10px 10px;
 }
-
 .top-selling .container-fluid > .bc-grid .collection-item > .body .info {
   padding: 2px;
 }
-
 .top-selling .container-fluid > .bc-grid .collection-item > .body .info .title {
   font-size: 16px;
   font-weight: 500;
 }
-
 .top-selling .container-fluid > .bc-grid .collection-item > .body .info .price {
   font-size: 12px;
 }
-
 .top-selling .container-fluid > .bc-grid .collection-item > .body .tocart {
   padding: 2px;
   font-size: 12px;
   color: #292929;
 }
-
 .top-selling .container-fluid > .bc-grid .collection-item > .body .tocart:hover {
-  color: #aeaeae;
+  color: #AEAEAE;
 }
 
 .top-selling > .container {
   margin-top: 6rem;
 }
-
 .top-selling > .container > .bc-grid {
   margin-top: 40px;
   display: grid;
@@ -471,7 +428,6 @@ header .toggle .btn-toggle {
   gap: 40px;
   max-width: 369px;
 }
-
 @media (min-width: 768px) {
   .top-selling > .container > .bc-grid {
     grid-template-columns: repeat(1, 1fr);
@@ -490,26 +446,22 @@ header .toggle .btn-toggle {
 .top-selling > .container > .bc-grid .collection-item-medium {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
-
 .top-selling > .container > .bc-grid .collection-item-medium > .body {
   color: #292929;
   margin-top: 10px;
   font-family: "Poppins", sans-serif;
   padding: 0 10px 10px 10px;
 }
-
 .top-selling > .container > .bc-grid .collection-item-medium > .body > .info > .title {
   font-size: 20px;
   font-weight: 500;
 }
-
 .top-selling > .container > .bc-grid .collection-item-medium > .body > .info > .text {
   text-align: start;
   font-family: "Roboto", sans-serif;
   font-size: 12px;
   color: #636363;
 }
-
 .top-selling > .container > .bc-grid .collection-item-medium > .body .admin {
   display: flex;
   justify-content: flex-start;
@@ -517,21 +469,18 @@ header .toggle .btn-toggle {
   margin: 1rem 0 0 0;
   opacity: 0.5;
 }
-
 .top-selling > .container > .bc-grid .collection-item-medium > .body .admin > .right {
   margin-left: 1rem;
 }
-
 .top-selling > .container > .bc-grid .collection-item-medium:hover {
   text-decoration: underline;
   color: #636363;
 }
 
 .newsletter {
-  background-color: gray;
+  background-color: #808080;
   margin-top: 4rem;
 }
-
 .newsletter > .container {
   padding: 4rem 0 4rem 0;
   margin-top: 4rem;
@@ -540,7 +489,6 @@ header .toggle .btn-toggle {
   align-items: center;
   border: none;
 }
-
 @media (min-width: 768px) {
   .newsletter > .container {
     display: flex;
@@ -568,14 +516,12 @@ header .toggle .btn-toggle {
 .newsletter > .container .input-form-newsletter {
   position: relative;
 }
-
 .newsletter > .container .input-form-newsletter .input-newsletter {
   border-radius: 25px;
   padding-left: 10px;
   height: 3rem;
   border: none;
 }
-
 @media (min-width: 768px) {
   .newsletter > .container .input-form-newsletter .input-newsletter {
     width: 650px;
@@ -597,12 +543,11 @@ header .toggle .btn-toggle {
 .newsletter > .container .input-form-newsletter > button {
   border-radius: 25px;
   margin-top: 1rem;
-  background-color: #fa3150;
-  color: #fff;
+  background-color: #FA3150;
+  color: #FFFFFF;
   border: none;
-  background-color: #fa3150;
+  background-color: #FA3150;
 }
-
 @media (min-width: 768px) {
   .newsletter > .container .input-form-newsletter > button {
     position: absolute;
@@ -615,29 +560,25 @@ header .toggle .btn-toggle {
 .footer {
   background-color: #292929;
 }
-
 .footer .footer-text {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
 }
-
 .footer .footer-text > p {
   font-size: 16px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: #fff;
+  color: #FFFFFF;
 }
 
 .banner {
   position: relative;
 }
-
 .banner > img {
   display: none;
 }
-
 @media (min-width: 768px) {
   .banner > img {
     display: block;
@@ -650,17 +591,14 @@ header .toggle .btn-toggle {
   align-items: center;
   flex-direction: column;
 }
-
 .banner > .container > p {
   font-family: "Poppins", sans-serif;
-  color: #000;
+  color: #000000;
 }
-
 .banner > .container > h1 {
   font-family: "Poppins", sans-serif;
-  color: #000;
+  color: #000000;
 }
-
 @media (min-width: 768px) {
   .banner > .container {
     position: absolute;
@@ -677,11 +615,9 @@ header .toggle .btn-toggle {
   gap: 40px;
   justify-content: center;
 }
-
 .Product-details > .container > .bc-grid .product-showcase .product-showcase-large img {
   width: 360px;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .product-showcase .product-showcase-large img {
     width: 100%;
@@ -690,7 +626,6 @@ header .toggle .btn-toggle {
 .Product-details > .container > .bc-grid .product-showcase .product-showcase-small {
   display: none;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .product-showcase .product-showcase-small {
     display: flex;
@@ -705,7 +640,6 @@ header .toggle .btn-toggle {
   color: #292929;
   text-align: center;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .add-product .text-area > h3 {
     text-align: left;
@@ -717,7 +651,6 @@ header .toggle .btn-toggle {
   font-weight: 400;
   text-align: center;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .add-product .text-area > p {
     text-align: left;
@@ -727,16 +660,14 @@ header .toggle .btn-toggle {
   display: flex;
   justify-content: center;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .add-product .stars {
     justify-content: flex-start;
   }
 }
 .Product-details > .container > .bc-grid .add-product .stars .fa-star {
-  color: #f9c936;
+  color: #F9C936;
 }
-
 .Product-details > .container > .bc-grid .add-product .stars > p {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -744,12 +675,10 @@ header .toggle .btn-toggle {
   color: #292929;
   padding-left: 1rem;
 }
-
 .Product-details > .container > .bc-grid .add-product .price {
   text-align: center;
   margin: 1rem 0 1rem 0;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .add-product .price {
     text-align: left;
@@ -760,7 +689,6 @@ header .toggle .btn-toggle {
   justify-content: space-evenly;
   align-items: center;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .add-product .num-input {
     justify-content: flex-start;
@@ -771,30 +699,24 @@ header .toggle .btn-toggle {
 .Product-details > .container > .bc-grid .add-product .num-input .input-group {
   width: 30%;
 }
-
 .Product-details > .container > .bc-grid .add-product .num-input > .addtocart {
-  background-color: #fa3150;
+  background-color: #FA3150;
   border: none;
   margin-left: 2rem;
-  color: #fff;
+  color: #FFFFFF;
 }
-
 .Product-details > .container > .bc-grid .add-product .colored-dots {
   display: none;
 }
-
 .Product-details > .container > .bc-grid .add-product .colored-dots #red {
-  color: #fa3150;
+  color: #FA3150;
 }
-
 .Product-details > .container > .bc-grid .add-product .colored-dots #yellow {
-  color: #f9c936;
+  color: #F9C936;
 }
-
 .Product-details > .container > .bc-grid .add-product .colored-dots #green {
-  color: #92b8b9;
+  color: #92B8B9;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .add-product .colored-dots {
     display: block;
@@ -805,7 +727,6 @@ header .toggle .btn-toggle {
   text-align: center;
   margin: 2rem;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container > .bc-grid .add-product .wishlist {
     text-align: left;
@@ -815,7 +736,6 @@ header .toggle .btn-toggle {
 .Product-details > .container > .bc-grid .add-product .wishlist > button {
   border: 1px solid #636363;
 }
-
 @media (min-width: 768px) {
   .Product-details > .container > .bc-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -839,7 +759,6 @@ header .toggle .btn-toggle {
   grid-row-gap: 10px;
   margin: 2rem 0 2rem 0;
 }
-
 @media (min-width: 992px) {
   .Product-details > .container .four-options {
     display: flex;
@@ -853,15 +772,13 @@ header .toggle .btn-toggle {
   border: 1px solid rgba(189, 182, 182, 0.5);
   text-align: center;
 }
-
 .Product-details > .container .four-options .container-links p {
   margin: 1rem 0.5rem 1rem 0.5rem;
   text-decoration: none;
 }
-
 .Product-details > .container .four-options .container-links p:hover {
-  background-color: #fa3150;
-  color: #fff;
+  background-color: #FA3150;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
@@ -869,21 +786,18 @@ header .toggle .btn-toggle {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-
 .product-detals-body > .container > .bc-grid {
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
 }
-
 .product-detals-body > .container > .bc-grid .body-text > p {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
-
 @media (min-width: 992px) {
   .product-detals-body > .container > .bc-grid .body-text > p {
     text-align: left;
@@ -892,7 +806,6 @@ header .toggle .btn-toggle {
 .product-detals-body > .container > .bc-grid .body-image img {
   width: 350px;
 }
-
 @media (min-width: 992px) {
   .product-detals-body > .container > .bc-grid .body-image img {
     width: 100%;
@@ -908,14 +821,13 @@ header .toggle .btn-toggle {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 .product-detals-display {
   margin-top: 4rem;
 }
-
 .product-detals-display > .container > h3 {
   text-align: center;
 }
-
 @media (min-width: 992px) {
   .product-detals-display > .container > h3 {
     text-align: left;
@@ -927,7 +839,6 @@ header .toggle .btn-toggle {
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
 }
-
 @media (min-width: 768px) {
   .product-detals-display > .container > .bc-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -950,7 +861,6 @@ header .toggle .btn-toggle {
   flex-direction: column;
   align-items: center;
 }
-
 @media (min-width: 992px) {
   .product-detals-display > .container .product-images {
     flex-direction: row;
@@ -961,37 +871,33 @@ header .toggle .btn-toggle {
 .product-detals-display > .container .product-images img {
   margin: 1rem 0 1rem 0;
 }
-
 @media (min-width: 992px) {
   .product-detals-display > .container .product-images img {
     margin: 0rem;
   }
 }
+
 .contactform-section > .container .contactform .form {
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 10px;
 }
-
 .contactform-section > .container .contactform .form input {
   border: none;
   background-color: #f7f2f2;
   border-radius: 5px;
 }
-
 .contactform-section > .container .contactform .form .left {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 .contactform-section > .container .contactform .form .right {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 @media (min-width: 992px) {
   .contactform-section > .container .contactform .form {
     grid-template-columns: repeat(2, 2fr);
@@ -1002,26 +908,21 @@ header .toggle .btn-toggle {
   flex-direction: column;
   align-items: flex-start;
 }
-
 .contactform-section > .container .comments textarea {
   width: 100%;
   margin: 2rem 0 2rem 0;
 }
-
 .contactform-section > .container .comments .radio {
   display: flex;
 }
-
 .contactform-section > .container .comments .radio > p {
   margin-left: 2rem;
 }
-
 .contactform-section > .container .comments > button {
-  background-color: #fa3150;
+  background-color: #FA3150;
   border: none;
-  color: #fff;
+  color: #FFFFFF;
 }
-
 .contactform-section > .container .comments > button:hover {
   color: #292929;
 }
@@ -1029,7 +930,6 @@ header .toggle .btn-toggle {
 .map-section {
   margin-top: 6rem;
 }
-
 .map-section iframe {
   width: 100%;
 }
@@ -1040,7 +940,6 @@ header .toggle .btn-toggle {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
-
 @media (min-width: 992px) {
   .Register-Account > .container .form-registration {
     grid-template-columns: repeat(2, 2fr);
@@ -1051,19 +950,16 @@ header .toggle .btn-toggle {
   background-color: #f7f2f2;
   border-radius: 5px;
 }
-
 .Register-Account > .container .form-registration .left {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 .Register-Account > .container .form-registration .right {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 .Register-Account > .container .form-registration .wide {
   display: flex;
   flex-direction: column;
@@ -1073,31 +969,26 @@ header .toggle .btn-toggle {
 .signup {
   margin: 3rem 3rem 3rem 3rem;
 }
-
 @media (min-width: 992px) {
   .signup {
     margin: 5rem 5rem 5rem 5rem;
   }
 }
 .signup > .container {
-  background-color: #fcf9f9;
+  background-color: rgb(252, 249, 249);
 }
-
 .signup > .container .signupform {
   display: flex;
   flex-direction: column;
 }
-
 .signup > .container .signupform #flexCheckDefault {
   margin: 2rem 0 1rem 0rem;
 }
-
 .signup > .container .signupform > button {
-  background-color: #fa3150;
-  color: #fff;
+  background-color: #FA3150;
+  color: #FFFFFF;
   border: none;
 }
-
 @media (min-width: 992px) {
   .signup > .container .signupform > button {
     width: 10%;

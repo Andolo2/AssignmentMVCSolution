@@ -1,0 +1,13 @@
+﻿@using AssignmentMVC.Services.ProductServices
+
+@inject ProductService ProductService
+
+@{
+    var productId = int.Parse(ViewData["Id"].ToString());
+    var product = await ProductService.GetByIdAsync(productId);
+}
+
+<h1>@product.Title</h1>
+<img src="@product.ImageUrl" alt="">
+
+<p>Price: @product.Price</p>

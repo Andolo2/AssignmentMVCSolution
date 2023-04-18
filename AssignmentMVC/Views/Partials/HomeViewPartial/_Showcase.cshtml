@@ -1,0 +1,19 @@
+﻿
+@inject ShowCaseServices ShowCaseServices
+@{
+    var showcase = ShowCaseServices.GetLatest(); ;
+}
+
+@if (showcase != null)
+{
+    <section class="showcase">
+        <div class="container">
+            <div class="showcase-content">
+                <div class="showcase-ingress">@showcase.Ingress</div>
+                <div class="showcase-title">@showcase.Title</div>
+                <button class="btn-theme">SHOP NOW</button>
+            </div>
+            <img class="showcase-image" src="@showcase.ImageUrl" alt="showcase-image">
+        </div>
+    </section>
+}
