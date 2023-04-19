@@ -1,4 +1,23 @@
-﻿@model GridCollectionViewModel
+﻿@using AssignmentMVC.Services.ProductServices;
+@model GridCollectionViewModel
+
+@inject ProductService ProductService
+
+@{
+    var products = ProductService.GetAllAsync().GetAwaiter().GetResult();
+}
+
+
+@*@if (products != null)
+{
+    <div class="bc-grid">
+        @foreach (var item in products)
+        {
+            <partial name="/Views/Partials/Reusable/GridCollectionItem.cshtml" model="item" />
+        }
+    </div>
+}*@
+
 
 @if (Model != null)
 {
@@ -22,6 +41,7 @@
 
             </div>
 
+
             @if (Model.GridItems != null)
             {
                 <div class="bc-grid">
@@ -31,6 +51,9 @@
                     }
                 </div>
             }
+
+
+
         </div>
     </section>
     <!-- BestCollection component END -->

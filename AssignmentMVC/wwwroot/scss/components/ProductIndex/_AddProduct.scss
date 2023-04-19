@@ -1,0 +1,19 @@
+﻿.created-products {
+
+
+    & > .container {
+
+
+        .ProductOverview {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-gap: 30px;
+            grid-row-gap: 50px;
+           
+
+            .ProductOverview-item {
+                display: flex;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+﻿.DisplayProductDetails {
+
+    & > .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 10px;
+      
+
+
+        & > img {
+            width: 300px;
+            height: 300px;
+        }
+    }
+}

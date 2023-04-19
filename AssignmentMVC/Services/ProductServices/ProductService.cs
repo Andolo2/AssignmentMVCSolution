@@ -87,6 +87,22 @@ public class ProductService
         return product;
     }
 
+    public async Task<IEnumerable<ProductModel>> GetEightAsync()
+    {
+        var products = new List<ProductModel>();
+
+        var items = await _context.Products.Take(8).ToListAsync();
+
+        foreach (var item in items)
+        {
+            ProductModel productModel = item;
+            products.Add(productModel);
+        }
+
+        return products;
+    }
+
+
 }
 
 

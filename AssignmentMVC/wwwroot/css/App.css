@@ -996,11 +996,21 @@ header .toggle .btn-toggle {
 }
 
 .DisplayProductDetails > .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
 }
 .DisplayProductDetails > .container > img {
   width: 300px;
   height: 300px;
+}
+
+.created-products > .container .ProductOverview {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 50px;
+}
+.created-products > .container .ProductOverview .ProductOverview-item {
+  display: flex;
 }

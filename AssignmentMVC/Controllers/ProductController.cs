@@ -18,6 +18,11 @@ namespace AssignmentMVC.Controllers
             _context = context;
         }
 
+        public IActionResult ProductPageIndex()
+        {
+            return View();
+        }
+
         public IActionResult ProductIndex()
         {
             return View();
@@ -78,6 +83,7 @@ namespace AssignmentMVC.Controllers
 
             if (product == null)
             {
+                 ModelState.AddModelError("", "No products found");
                 return NotFound();
             }
 
