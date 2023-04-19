@@ -1,23 +1,23 @@
-.best-collection{
+.best-collection {
     padding: 40px 0;
 
 
-    .container{
+    .container {
 
 
-        .bc-title{
-               text-align: center;
-                font-family: $font-poppins;
-                font-weight: $font-weight-semibold;
-                font-size: 38px;
-                color: $color-dark-2;
+        .bc-title {
+            text-align: center;
+            font-family: $font-poppins;
+            font-weight: $font-weight-semibold;
+            font-size: 38px;
+            color: $color-dark-2;
 
-                @include md {
-                    font-size: 48px;
-                }
+            @include md {
+                font-size: 48px;
+            }
         }
 
-        .bc-link-collection{
+        .bc-link-collection {
             display: none;
             justify-content: center;
             list-style: none;
@@ -27,10 +27,10 @@
             @include lg {
                 display: flex;
             }
-            
+
             .bc-links {
                 margin-right: 5px;
-    
+
                 & + li::before {
                     content: "/";
                     margin-right: 5px;
@@ -38,7 +38,7 @@
             }
         }
 
-        .bc-grid{
+        .bc-grid {
             margin-top: 40px;
             display: grid;
             grid-template-columns: repeat(1, 1fr);
@@ -47,13 +47,15 @@
             @include md {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             @include lg {
                 grid-template-columns: repeat(3, 1fr);
             }
+
             @include xl {
                 grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(4, 1fr);
             }
         }
-
     }
 }
