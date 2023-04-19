@@ -1,9 +1,13 @@
-﻿
-@inject UpToSaleService UpToSaleServices
+﻿@using AssignmentMVC.Services.ProductServices;
+
+
+
+@inject ProductService ProductService
 
 @{
-    var uptosale = UpToSaleServices.GetLatest();
+    var productss = ProductService.GetTwoAsync().GetAwaiter().GetResult();
 }
+
 
 <!--Up-To-Sale component START-->
 <section class="up-to-sale">
@@ -11,7 +15,7 @@
         <div class="collection-grid">
 
             <div class="bc-grid">
-                @foreach (var item in Model.GridItems)
+                @foreach (var item in productss)
                 {
                     <partial name="/Views/Partials/Reusable/GridCollectionItem.cshtml" model="item" />
                 }
@@ -19,16 +23,16 @@
 
             <div class="collection-item collection-content">
                 <div class="container">
-                    <div class="title-red">@uptosale.RedTitle</div>
-                    <div class="title">@uptosale.Title</div>
-                    <div class="ingress">@uptosale.Ingress</div>
-                    <div class="text">@uptosale.Text</div>
-                    <a href="#" class="link">@uptosale.Link</a>
+                    <div class="title-red">UP TO SELL</div>
+                    <div class="title">50% OFF</div>
+                    <div class="ingress">Get the Best Price</div>
+                    <div class="text">Get the best daily offer et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren no sea taki</div>
+                    <a href="#" class="link">Discover More</a>
                 </div>
             </div>
 
             <div class="bc-grid">
-                @foreach (var item in Model.GridItems)
+                @foreach (var item in productss)
                 {
                     <partial name="/Views/Partials/Reusable/GridCollectionItem.cshtml" model="item" />
                 }

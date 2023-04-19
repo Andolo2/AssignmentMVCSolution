@@ -102,6 +102,37 @@ public class ProductService
         return products;
     }
 
+    public async Task<IEnumerable<ProductModel>> GetTwoAsync()
+    {
+        var products = new List<ProductModel>();
+
+        var items = await _context.Products.Take(1).ToListAsync();
+
+        foreach (var item in items)
+        {
+            ProductModel productModel = item;
+            products.Add(productModel);
+        }
+
+        return products;
+    }
+
+    public async Task<IEnumerable<ProductModel>> GetSixAsync()
+    {
+        var products = new List<ProductModel>();
+
+        var items = await _context.Products.Take(6).ToListAsync();
+
+        foreach (var item in items)
+        {
+            ProductModel productModel = item;
+            products.Add(productModel);
+        }
+
+        return products;
+    }
+
+
 
 }
 

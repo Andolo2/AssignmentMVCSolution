@@ -1,0 +1,26 @@
+﻿@using AssignmentMVC.Services.ProductServices;
+
+
+
+@inject ProductService ProductService
+
+@{
+    var productss = ProductService.GetSixAsync().GetAwaiter().GetResult();
+}
+
+
+<!--top selling component START-->
+<section class="top-selling">
+    <div class="container-fluid">
+        <div class="bc-grid">
+            @foreach (var item in productss)
+            {
+                <partial name="/Views/Partials/Reusable/GridCollectionItem.cshtml" model="item" />
+            }
+        </div>
+    </div>
+
+
+
+</section>
+<!--top selling component END-->
