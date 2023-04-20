@@ -1,5 +1,6 @@
 ﻿
-document.getElementById("footer").style.marginTop = "220px";
+/*document.getElementById("footer").style.marginTop = "220px";*/
+document.getElementsByName("body").style.marginBottom = "50px";
 
 function SetHeight () {
     var offsetHeight = document.getElementById('footer').offsetHeight;

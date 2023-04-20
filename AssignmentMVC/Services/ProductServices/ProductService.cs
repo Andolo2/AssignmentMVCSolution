@@ -132,6 +132,41 @@ public class ProductService
         return products;
     }
 
+    public async Task<IEnumerable<ProductModel>> GetThreeAsync()
+    {
+        var products = new List<ProductModel>();
+
+        var items = await _context.Products.Take(3).ToListAsync();
+
+        foreach (var item in items)
+        {
+            ProductModel productModel = item;
+            products.Add(productModel);
+        }
+
+        return products;
+    }
+
+    public async Task<IEnumerable<ProductModel>> GetFeaturedProductsAsync()
+    {
+        var products = await _context.Products
+            .Where(p => p.IsFeatured)
+            .Select(p => new ProductModel
+            {
+                Id = p.Id,
+                ImageUrl = p.ImageUrl,
+                Title = p.Title,
+                Price = p.Price,
+                IsNew = p.IsNew,
+                IsPopular = p.IsPopular,
+                IsFeatured = p.IsFeatured
+            })
+            .ToListAsync();
+
+        return products;
+    }
+
+
 
 
 }

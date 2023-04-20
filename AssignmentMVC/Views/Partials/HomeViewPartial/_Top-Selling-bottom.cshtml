@@ -1,13 +1,22 @@
-﻿   <!-- Bottom portion, three cards START-->
+﻿@using AssignmentMVC.Services.ProductServices;
+
+
+
+@inject ProductService ProductService
+
+@{
+    var productss = ProductService.GetFeaturedProductsAsync().GetAwaiter().GetResult();
+}
+   <!-- Bottom portion, three cards START-->
 
 
 <section class="top-selling">
     <div class="container">
         <div class="bc-grid">
 
-            @foreach (var item in Model.GridItems)
+            @foreach (var item in productss)
             {
-                <partial name="/Views/Partials/Reusable/MediumGridCollection.cshtml" model="item" />
+                <partial name="/Views/Partials/Reusable/GridCollectionItem.cshtml" model="item" />
             }
         </div>
 
