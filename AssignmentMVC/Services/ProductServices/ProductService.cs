@@ -166,6 +166,43 @@ public class ProductService
         return products;
     }
 
+    public async Task<IEnumerable<ProductModel>> GetNewProductsAsync()
+    {
+        var products = await _context.Products
+            .Where(p => p.IsNew)
+            .Select(p => new ProductModel
+            {
+                Id = p.Id,
+                ImageUrl = p.ImageUrl,
+                Title = p.Title,
+                Price = p.Price,
+                IsNew = p.IsNew,
+                IsPopular = p.IsPopular,
+                IsFeatured = p.IsFeatured
+            })
+            .ToListAsync();
+
+        return products;
+    }
+
+    public async Task<IEnumerable<ProductModel>> GetPopularProductsAsync()
+    {
+        var products = await _context.Products
+            .Where(p => p.IsPopular)
+            .Select(p => new ProductModel
+            {
+                Id = p.Id,
+                ImageUrl = p.ImageUrl,
+                Title = p.Title,
+                Price = p.Price,
+                IsNew = p.IsNew,
+                IsPopular = p.IsPopular,
+                IsFeatured = p.IsFeatured
+            })
+            .ToListAsync();
+
+        return products;
+    }
 
 
 

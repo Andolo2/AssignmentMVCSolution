@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // ADD DATACONTEXT START
 builder.Services.AddDbContext<DataContexts>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("ProductSql")));
+builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("UserSql")));
 
 
 // ADD DATACONTEXT END

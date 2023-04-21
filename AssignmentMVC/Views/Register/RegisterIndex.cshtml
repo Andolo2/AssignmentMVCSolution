@@ -1,0 +1,92 @@
+﻿@model UserRegisterViewModel
+
+@{
+    ViewData["Title"] = "Register your account";
+}
+
+
+<section class="Register-Account">
+    <div class="container">
+
+        <div asp-validation-summary="ModelOnly" class="error"></div>
+
+        <form class="form-registration" method="post">
+
+            <div class="left">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" />
+                <span asp-validation-for="FirstName"></span>
+
+            </div>
+
+            <div class="right">
+
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" />
+                <span asp-validation-for="LastName"></span>
+
+            </div>
+
+            <div class="wide">
+                <label asp-for="StreetName"></label>
+                <input asp-for="StreetName" />
+                <span asp-validation-for="StreetName"></span>
+            </div>
+
+            <div class="left">
+                <label asp-for="PostalCode"></label>
+                <input asp-for="PostalCode" />
+                <span asp-validation-for="PostalCode"></span>
+
+                <label asp-for="Mobile"></label>
+                <input asp-for="Mobile" />
+                <span asp-validation-for="Mobile"></span>
+
+            </div>
+
+            <div class="right">
+
+                <label asp-for="City"></label>
+                <input asp-for="City" />
+                <span asp-validation-for="City"></span>
+
+
+                <label asp-for="Company"></label>
+                <input asp-for="Company" />
+                <span asp-validation-for="Company"></span>
+
+            </div>
+
+            <div class="wide">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+
+                <label asp-for="Password"></label>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" />
+                <span asp-validation-for="ConfirmPassword"></span>
+
+                <label asp-for="ImageFile"></label>
+                <input asp-for="ImageFile" />
+                <span asp-validation-for="ImageFile"></span>
+            </div>
+
+
+            <div class="submit-area">
+                <div class="radio">
+
+                    <input asp-for="TermsAndAgreement" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <p>Save my name, email, and website in this browser for the next time I comment.</p>
+                </div>
+                <button type="submit" >Submit</button>
+            </div>
+
+
+
+        </form>
+    </div>
+</section>
