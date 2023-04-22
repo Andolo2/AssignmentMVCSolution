@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AssignmentMVC.Models.Entities;
+using AssignmentMVC.Models.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace AssignmentMVC.ViewModels.LoginViewModel
 {
@@ -67,5 +69,32 @@ namespace AssignmentMVC.ViewModels.LoginViewModel
         [Display(Name = "I Accept terms and Agreements")]
         [Required(ErrorMessage = "You must agree to the terms...")]
         public bool TermsAndAgreement { get; set; } = false;
+
+
+
+        public static implicit operator AppUser(UserRegisterViewModel userRegisterViewModel)
+        {
+            return new AppUser
+            {
+                UserName = userRegisterViewModel.Email,
+                FirstName = userRegisterViewModel.FirstName,
+                LastName = userRegisterViewModel.LastName,
+                Email = userRegisterViewModel.Email,
+                PhoneNumber = userRegisterViewModel.Mobile,
+                CompanyName = userRegisterViewModel.Company,
+
+            };
+        }
+
+        public static implicit operator AdressEntity(UserRegisterViewModel userRegisterViewModel)
+        {
+            return new AdressEntity
+            {
+                StreetName = userRegisterViewModel.StreetName,
+                PostalCode = userRegisterViewModel.PostalCode,
+                City = userRegisterViewModel.City
+            };
+        }
+
     }
 }
