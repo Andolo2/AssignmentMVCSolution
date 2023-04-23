@@ -1,24 +1,39 @@
-﻿using AssignmentMVC.ViewModels.LoginViewModel;
+﻿using AssignmentMVC.Services.Authentication;
+using AssignmentMVC.ViewModels.LoginViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssignmentMVC.Controllers
 {
     public class LoginController : Controller
     {
-        public IActionResult LoginIndex()
+
+        private readonly AuthenticationService _auth;
+
+        public LoginController(AuthenticationService auth)
         {
-            return View();
+            _auth = auth;
+        }
+
+        public IActionResult LoginIndex(string ReturnUrl = null!)
+        {
+            var userLoginViewModel = new UserLoginViewModel();
+            if( ReturnUrl != null)
+                userLoginViewModel.ReturnUrl = ReturnUrl;
+          return View();
         }
 
         [HttpPost]
-        public IActionResult LoginIndex(UserLoginViewModel userLoginViewModel)
+        public async Task<IActionResult> LoginIndex(UserLoginViewModel userLoginViewModel)
         {
             if (ModelState.IsValid)
             {
-                return View();
+                if (await _auth.LoginAsync(userLoginViewModel))
+                    return LocalRedirect(userLoginViewModel.ReturnUrl);
+                ModelState.AddModelError("", "Incorrect Email or Password.");
+
             }
 
-            ModelState.AddModelError("", "Incorrect Email or Password.");
+           
             return View(userLoginViewModel);
         }
     }
