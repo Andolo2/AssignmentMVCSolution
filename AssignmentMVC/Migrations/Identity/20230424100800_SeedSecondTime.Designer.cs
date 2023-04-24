@@ -4,6 +4,7 @@ using AssignmentMVC.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssignmentMVC.Migrations.Identity
 {
     [DbContext(typeof(IdentityContext))]
-    partial class IdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20230424100800_SeedSecondTime")]
+    partial class SeedSecondTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,19 +146,18 @@ namespace AssignmentMVC.Migrations.Identity
                     b.HasData(
                         new
                         {
-                            Id = "c2137672-6c1f-4b17-a032-3e66fcb02006",
+                            Id = "8a8e9e1c-2b3c-4a1d-b323-2f5d8a5e826c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d1778991-6754-479f-b9f3-8b64cff9195c",
-                            Email = "administrator@gmail.com",
+                            ConcurrencyStamp = "9cd6ebd4-2d05-420b-95c7-ad38af127ef9",
                             EmailConfirmed = false,
-                            FirstName = " ",
-                            LastName = " ",
+                            FirstName = "System",
+                            LastName = "Administrator",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPk/E4mtLoEtaeA+VSceelUf8WlEQyfhwiF6sFR37z4WmT/HoLdpBYDWzYRFZWe95Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEORLB26SNbl04pSlX6Yg6Lz0J3dYrcpodQdS67Rqb61FWPW9M5rqX/JemiyzbMtOcA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "39857fb1-a033-43e7-a6fb-792606d2b67f",
+                            SecurityStamp = "eeacfc88-a663-4120-8ad3-f319e808773f",
                             TwoFactorEnabled = false,
-                            UserName = "administrator@gmail.com"
+                            UserName = "administrator"
                         });
                 });
 
@@ -188,7 +190,7 @@ namespace AssignmentMVC.Migrations.Identity
                     b.HasData(
                         new
                         {
-                            Id = "54aa71ed-38ff-4a40-8ee9-f6934978e29c",
+                            Id = "8af42014-4f6e-485d-95e5-9c0129cfe0ac",
                             Name = "System Administrator",
                             NormalizedName = "SYSTEM ADMINISTRATOR"
                         });
@@ -279,13 +281,6 @@ namespace AssignmentMVC.Migrations.Identity
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "c2137672-6c1f-4b17-a032-3e66fcb02006",
-                            RoleId = "54aa71ed-38ff-4a40-8ee9-f6934978e29c"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

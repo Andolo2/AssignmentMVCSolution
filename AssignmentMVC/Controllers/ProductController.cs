@@ -2,7 +2,9 @@
 using AssignmentMVC.Models.Entities;
 using AssignmentMVC.Services.ProductServices;
 using AssignmentMVC.ViewModels.RegisterProduct;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using static AssignmentMVC.Services.ProductServices.ProductService;
 
 namespace AssignmentMVC.Controllers
@@ -34,6 +36,7 @@ namespace AssignmentMVC.Controllers
         }
 
 
+        [Authorize(Roles = "System Administrator")]
 
         [HttpPost]
         public async Task<IActionResult> Register(ProductRegistrationViewModel productRegistrationViewModel, bool isNew, bool isPopular, bool isFeatured)

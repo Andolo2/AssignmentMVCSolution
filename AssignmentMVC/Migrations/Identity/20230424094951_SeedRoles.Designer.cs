@@ -4,6 +4,7 @@ using AssignmentMVC.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssignmentMVC.Migrations.Identity
 {
     [DbContext(typeof(IdentityContext))]
-    partial class IdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20230424094951_SeedRoles")]
+    partial class SeedRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,24 +142,6 @@ namespace AssignmentMVC.Migrations.Identity
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "c2137672-6c1f-4b17-a032-3e66fcb02006",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "d1778991-6754-479f-b9f3-8b64cff9195c",
-                            Email = "administrator@gmail.com",
-                            EmailConfirmed = false,
-                            FirstName = " ",
-                            LastName = " ",
-                            LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPk/E4mtLoEtaeA+VSceelUf8WlEQyfhwiF6sFR37z4WmT/HoLdpBYDWzYRFZWe95Q==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "39857fb1-a033-43e7-a6fb-792606d2b67f",
-                            TwoFactorEnabled = false,
-                            UserName = "administrator@gmail.com"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -188,7 +173,7 @@ namespace AssignmentMVC.Migrations.Identity
                     b.HasData(
                         new
                         {
-                            Id = "54aa71ed-38ff-4a40-8ee9-f6934978e29c",
+                            Id = "0a39492f-dc70-4823-94ca-2714cebdbc68",
                             Name = "System Administrator",
                             NormalizedName = "SYSTEM ADMINISTRATOR"
                         });
@@ -279,13 +264,6 @@ namespace AssignmentMVC.Migrations.Identity
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "c2137672-6c1f-4b17-a032-3e66fcb02006",
-                            RoleId = "54aa71ed-38ff-4a40-8ee9-f6934978e29c"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

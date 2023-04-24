@@ -17,14 +17,20 @@ namespace AssignmentMVC.Controllers
         public IActionResult LoginIndex(string ReturnUrl = null!)
         {
             var userLoginViewModel = new UserLoginViewModel();
-            if( ReturnUrl != null)
+            if (ReturnUrl != null)
+            {
                 userLoginViewModel.ReturnUrl = ReturnUrl;
-          return View();
+            }
+            return View(userLoginViewModel);
         }
+
+
 
         [HttpPost]
         public async Task<IActionResult> LoginIndex(UserLoginViewModel userLoginViewModel)
         {
+
+
             if (ModelState.IsValid)
             {
                 if (await _auth.LoginAsync(userLoginViewModel))
@@ -36,5 +42,7 @@ namespace AssignmentMVC.Controllers
            
             return View(userLoginViewModel);
         }
+
+
     }
 }

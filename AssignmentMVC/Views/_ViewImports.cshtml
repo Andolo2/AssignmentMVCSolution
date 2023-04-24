@@ -1,8 +1,14 @@
 ﻿@using static AssignmentMVC.Services.ShowCaseServices.ShowCaseService;
+
+@inject SignInManager<AppUser> _signInmanager
+@inject UserManager<AppUser> _userManager
+
+@using AssignmentMVC.Models.Identity;
 @using AssignmentMVC.ViewModels.HomeViewModels;
 @using AssignmentMVC.ViewModels.GridViewModels;
 @using AssignmentMVC.Models.Models;
 @using AssignmentMVC.Services.UpToSaleService;
 @using AssignmentMVC.ViewModels.RegisterProduct;
 @using AssignmentMVC.ViewModels.LoginViewModel;
+@using Microsoft.AspNetCore.Identity;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

@@ -9,9 +9,10 @@
     <div class="container">
         <h5>@ViewData["Title"]</h5>
 
-        <form class="signupform" method="post" asp-route-ReturnUrl="@Model.ReturnUrl" >
+        <form class="signupform" method="post" asp-route-ReturnUrl="@Model.ReturnUrl">
 
             <div asp-validation-summary="ModelOnly" class="error"></div>
+
 
             <label asp-for="Email"></label>
             <input asp-for="Email" />
@@ -21,7 +22,7 @@
             <input asp-for="Password" />
             <span asp-validation-for="Password"></span>
 
-            <input asp-for="RememberMe" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <input asp-for="RememberMe" class="form-check-input" type="checkbox"  id="flexCheckDefault">
             <p>Save my name, email, and website in this browser for the next time I comment.</p>
 
             <button type="submit" >Submit</button>

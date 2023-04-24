@@ -6,13 +6,28 @@
             <nav class="MenuLinks">
                 <a class="links" asp-controller="Home" asp-action="HomeIndex">HOME</a>
                 <a class="links" asp-controller="Product" asp-action="RegisterProduct">PRODUCTS</a>
-                <a class="links" asp-controller="Product" asp-action="ProductIndex">PRODUCTSINDEX</a>
-                <a class="links" asp-controller="Product" asp-action="ProductPageIndex">PRODUCTPage</a>
                 <a class="links" asp-controller="Contacts" asp-action="Index">CONTACT</a>
             </nav>
             <nav class="MenuIcons">
-                <a class="links" asp-controller="Products" asp-action="Search"> <i class="fa-regular fa-search"> </i></a>
-                <a class="links" asp-controller="Login" asp-action="LoginIndex">Login</a>
+                <a class="links" asp-controller="Products" asp-action="Search"><i class="fa-regular fa-search"></i></a>
+
+                @if (_signInmanager.IsSignedIn(User))
+                {
+                    <a class="links" asp-controller="Login" asp-action="Account"></a>
+                    <a class="links" asp-controller="Logout" asp-action="LogOutIndex">Logout</a>
+
+                    var user = await _userManager.GetUserAsync(User);
+                    if (await _userManager.IsInRoleAsync(user, "System Administrator"))
+                    {
+                        <a class="links" asp-controller="Product" asp-action="ProductIndex">PRODUCTSINDEX</a>
+                        <a class="links" asp-controller="Product" asp-action="ProductPageIndex">PRODUCTPage</a>
+                    }
+                }
+                else
+                {
+                    <a class="links" asp-controller="Login" asp-action="LoginIndex">Login</a>
+                }
+
                 <a class="links" asp-controller="Cart" asp-action="Index"><i class="fa-solid fa-cart-shopping"></i></a>
             </nav>
         </div>
@@ -21,3 +36,7 @@
         </div>
     </div>
 </header>
+
+
+
+      

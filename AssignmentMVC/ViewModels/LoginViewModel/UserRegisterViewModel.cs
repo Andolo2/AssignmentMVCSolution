@@ -43,14 +43,14 @@ namespace AssignmentMVC.ViewModels.LoginViewModel
         [Display(Name = "Email")]
         [Required(ErrorMessage = "You must provide an Email")]
         [DataType(DataType.EmailAddress)]
-        [RegularExpression(@"/^\S+@\S+\.\S+$/", ErrorMessage = "Email is not valid")]
+        //[RegularExpression(@"/^\S+@\S+\.\S+$/", ErrorMessage = "Email is not valid")]
         public string Email { get; set; } = null!;
 
 
         [Display(Name = "Password")]
         [Required(ErrorMessage = "You must provide a Password")]
         [DataType(DataType.Password)]
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Password is not secure, try again")]
+    ///*    [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Password is not secure, try aga*/in")]
         public string Password { get; set; } = null!;
 
 
