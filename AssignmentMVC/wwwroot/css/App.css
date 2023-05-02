@@ -903,6 +903,12 @@ header .toggle .btn-toggle {
     grid-template-columns: repeat(2, 2fr);
   }
 }
+.contactform-section > .container .contactform .error-message {
+  display: block;
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
 .contactform-section > .container .comments {
   display: flex;
   flex-direction: column;
@@ -996,9 +1002,10 @@ header .toggle .btn-toggle {
 }
 
 .DisplayProductDetails > .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .DisplayProductDetails > .container > img {
   width: 300px;
