@@ -22,36 +22,77 @@ SetHeight();
 
 ///// ContactFormValidation START /////
 
-const form = document.querySelector('.contactform'); // select the form element
-const inputs = document.querySelectorAll('.contactform input, .contactform textarea'); // select all input and textarea elements in the form
-const saveInfoCheckbox = document.querySelector('#save-info');
+// Select all the input fields and the submit button
+const nameInput = document.querySelector('#name-input');
+const phoneInput = document.querySelector('#phone-input');
+const emailInput = document.querySelector('#email-input');
+const companyInput = document.querySelector('#company-input');
+const commentInput = document.querySelector('#comment-input');
 const submitButton = document.querySelector('#submit-button');
 
-form.addEventListener('submit', function (event) {
-    event.preventDefault(); // prevent the form from submitting
+// Define a function to validate the form
+function validateForm(event) {
+    event.preventDefault(); // Prevent the form from being submitted
 
-    inputs.forEach(input => { // loop through each input and textarea element
-        const errorMessage = input.parentElement.querySelector('.error-message'); // select the error message element that corresponds to the input
+    let isValid = true;
 
-        if (!input.value) { // check if the input value is empty
-            errorMessage.textContent = `Please enter your ${input.name}.`; // set the error message text
-        } else {
-            errorMessage.textContent = ''; // clear the error message text
-        }
-    });
-
-    if (!saveInfoCheckbox.checked) { // check if the save info checkbox is not checked
-        document.querySelector('.radio .error-message').textContent = 'Please agree to our terms and conditions.'; // set the error message text for the save info checkbox
+    // Check if the name field is empty
+    if (nameInput.value.trim() === '') {
+        nameInput.nextElementSibling.textContent = 'Field can not be empty';
+        isValid = false;
     } else {
-        document.querySelector('.radio .error-message').textContent = ''; // clear the error message text for the save info checkbox
+        nameInput.nextElementSibling.textContent = '';
     }
 
-    if (Array.from(inputs).some(input => !input.value) || !saveInfoCheckbox.checked) { // check if any input is empty or if the save info checkbox is not checked
-        submitButton.disabled = true; // disable the submit button
+    // Check if the phone field is empty
+    if (phoneInput.value.trim() === '') {
+        phoneInput.nextElementSibling.textContent = 'Field can not be empty';
+        isValid = false;
     } else {
-        submitButton.disabled = false; // enable the submit button
+        phoneInput.nextElementSibling.textContent = '';
     }
-});
+
+    // Check if the email field is empty
+    if (emailInput.value.trim() === '') {
+        emailInput.nextElementSibling.textContent = 'Field can not be empty';
+        isValid = false;
+    } else {
+        emailInput.nextElementSibling.textContent = '';
+    }
+
+    // Check if the company field is empty
+    if (companyInput.value.trim() === '') {
+        companyInput.nextElementSibling.textContent = 'Field can not be empty';
+        isValid = false;
+    } else {
+        companyInput.nextElementSibling.textContent = '';
+    }
+
+    // Check if the comment field is empty
+    if (commentInput.value.trim() === '') {
+        commentInput.nextElementSibling.textContent = 'Field can not be empty';
+        isValid = false;
+    } else {
+        commentInput.nextElementSibling.textContent = '';
+    }
+
+    // Enable or disable the submit button based on the form validation
+    submitButton.disabled = !isValid;
+
+    // Return the validation result
+    return isValid;
+}
+
+// Validate the form when it's submitted
+document.querySelector('.contactform').addEventListener('submit', validateForm);
+
+// Validate the form when the user changes the input fields
+nameInput.addEventListener('input', validateForm);
+phoneInput.addEventListener('input', validateForm);
+emailInput.addEventListener('input', validateForm);
+companyInput.addEventListener('input', validateForm);
+commentInput.addEventListener('input', validateForm);
+
 
 ///// ContactFormValidation END /////
 

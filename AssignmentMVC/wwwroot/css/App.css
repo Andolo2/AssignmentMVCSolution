@@ -906,8 +906,8 @@ header .toggle .btn-toggle {
 .contactform-section > .container .contactform .error-message {
   display: block;
   color: red;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
+  font-size: 10px;
+  height: 20px;
 }
 .contactform-section > .container .comments {
   display: flex;
