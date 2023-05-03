@@ -96,3 +96,115 @@ commentInput.addEventListener('input', validateForm);
 
 ///// ContactFormValidation END /////
 
+///// LOgin form validation /////
+
+const form = document.querySelector('.signupform');
+const emailInput = document.querySelector('input[name="Email"]');
+const passwordInput = document.querySelector('input[name="Password"]');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (emailInput.value.trim() === '') {
+        document.querySelector('#Login-Email + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('#Login-Email + span').textContent = '';
+    }
+
+    if (passwordInput.value.trim() === '') {
+        document.querySelector('#Login-password + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('#Login-password + span').textContent = '';
+    }
+
+    if (emailInput.value.trim() !== '' && passwordInput.value.trim() !== '') {
+        form.submit();
+    }
+});
+
+
+        // Register account validation
+
+const form = document.querySelector('.form-registration');
+const firstNameInput = document.querySelector('#register-firstname');
+const lastNameInput = document.querySelector('#register-lastname');
+const streetNameInput = document.querySelector('#register-streetname');
+const postalCodeInput = document.querySelector('#register-postalcode');
+const mobileInput = document.querySelector('#register-mobile');
+const cityInput = document.querySelector('#register-city');
+const companyInput = document.querySelector('#register-company');
+const emailInput = document.querySelector('#register-emial');
+const passwordInput = document.querySelector('#register-password');
+const confirmPasswordInput = document.querySelector('#register-confirm');
+const imageFileInput = document.querySelector('input[type="file"]');
+const termsAndAgreementInput = document.querySelector('#flexCheckDefault');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // Validate first name
+    if (firstNameInput.value.trim() === '') {
+        document.querySelector('label[for="FirstName"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="FirstName"] + span').textContent = '';
+    }
+
+    // Validate last name
+    if (lastNameInput.value.trim() === '') {
+        document.querySelector('label[for="LastName"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="LastName"] + span').textContent = '';
+    }
+
+    // Validate street name
+    if (streetNameInput.value.trim() === '') {
+        document.querySelector('label[for="StreetName"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="StreetName"] + span').textContent = '';
+    }
+
+    // Validate postal code
+    if (postalCodeInput.value.trim() === '') {
+        document.querySelector('label[for="PostalCode"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="PostalCode"] + span').textContent = '';
+    }
+
+    // Validate mobile
+    if (mobileInput.value.trim() === '') {
+        document.querySelector('label[for="Mobile"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="Mobile"] + span').textContent = '';
+    }
+
+    // Validate city
+    if (cityInput.value.trim() === '') {
+        document.querySelector('label[for="City"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="City"] + span').textContent = '';
+    }
+
+    // Validate company
+    if (companyInput.value.trim() === '') {
+        document.querySelector('label[for="Company"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="Company"] + span').textContent = '';
+    }
+
+    // Validate email
+    if (emailInput.value.trim() === '') {
+        document.querySelector('label[for="Email"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="Email"] + span').textContent = '';
+    }
+
+    // Validate password
+    if (passwordInput.value.trim() === '') {
+        document.querySelector('label[for="Password"] + span').textContent = 'Field cannot be empty';
+    } else {
+        document.querySelector('label[for="Password"] + span').textContent = '';
+    }
+
+    // Validate confirm password
+    if (confirmPasswordInput.value.trim() === '') {
+        document.querySelector('label[for="ConfirmPassword"] + span').textContent = 'Field cannot be empty';
+    } else if

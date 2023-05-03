@@ -9,18 +9,22 @@
     <div class="container">
         <h5>@ViewData["Title"]</h5>
 
+        <a class="links" asp-controller="Register" asp-action="RegisterIndex">Don´t have an account? Sign up here</a>
+
         <form class="signupform" method="post" asp-route-ReturnUrl="@Model.ReturnUrl">
 
             <div asp-validation-summary="ModelOnly" class="error"></div>
 
 
-            <label asp-for="Email"></label>
+            <label asp-for="Email" id="Login-Email"></label>
             <input asp-for="Email" />
             <span asp-validation-for="Email"></span>
+            <span class="error-message"></span>
 
-            <label asp-for="Password"></label>
+            <label asp-for="Password" id="Login-password"></label>
             <input asp-for="Password" />
             <span asp-validation-for="Password"></span>
+            <span class="error-message"></span>
 
             <input asp-for="RememberMe" class="form-check-input" type="checkbox"  id="flexCheckDefault">
             <p>Save my name, email, and website in this browser for the next time I comment.</p>
