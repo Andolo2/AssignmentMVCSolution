@@ -1,17 +1,33 @@
 ﻿@using AssignmentMVC.Services.ProductServices;
-@model ProductModel
+
+
+
+
 
 @inject ProductService ProductService
 
 @{
     var products = ProductService.GetAllAsync().GetAwaiter().GetResult();
-    ViewBag.Products = products;
 }
 
 
+@foreach (var product in products)
+{
+    <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Id" class="collection-item">
+        <img  src="~/images/FromForm/@product.ImageUrl" alt="@product.Title" />
+        <div class="body">
+            <div class="info">
+                <div class="title">@product.Title</div>
+                <div class="price">$ @product.Price</div>
 
+            </div>
+            <i class="fa-sharp fa-regular fa-cart-plus fa-shake"></i>
+        </div>
+    </a>
 
-<a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Id" class="collection-item">
+}
+
+@*@*<a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Id" class="collection-item">
     <img src="@Model.ImageUrl" alt="">
     <div class="body">
         <div class="info">
@@ -23,7 +39,7 @@
     </div>
 </a>
 
-
+*@
 
 
 

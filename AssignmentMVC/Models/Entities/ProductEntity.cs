@@ -1,9 +1,11 @@
-﻿using AssignmentMVC.Models.Models;
+﻿
+using AssignmentMVC.Models.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AssignmentMVC.Models.Entities
 {
+
     public class ProductEntity
     {
         public int Id { get; set; }
@@ -28,6 +30,8 @@ namespace AssignmentMVC.Models.Entities
                 IsFeatured = entity.IsFeatured
             };
         }
+
+
     }
 
 

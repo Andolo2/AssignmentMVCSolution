@@ -1,11 +1,16 @@
-﻿namespace AssignmentMVC.Models.Models
+﻿
+using AssignmentMVC.Models.Entities;
+
+namespace AssignmentMVC.Models.Models
 {
     public class ProductModel
     {
+
+
         public int Id { get; set; }
 
 
-        public string ImageUrl { get; set; } = null!;
+        public string? ImageUrl { get; set; }
 
         public string Title { get; set; } = null!;
 
@@ -15,5 +20,9 @@
         public bool IsNew { get; set; }
         public bool IsPopular { get; set; }
         public bool IsFeatured { get; set; }
+
+
+
+
     }
 }

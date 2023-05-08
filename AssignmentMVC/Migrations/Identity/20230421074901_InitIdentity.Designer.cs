@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssignmentMVC.Migrations.Identity
 {
-    [DbContext(typeof(IdentityContext))]
+    [DbContext(typeof(DataContexts))]
     [Migration("20230421074901_InitIdentity")]
     partial class InitIdentity
     {

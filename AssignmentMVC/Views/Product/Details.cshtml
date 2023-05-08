@@ -10,7 +10,8 @@
 <div class="DisplayProductDetails">
     <div class="container">
         <h1>@product.Title</h1>
-        <img src="@Url.Content(@product.ImageUrl)" alt="">
+        <img src="~/images/FromForm/@product.ImageUrl" alt="@product.Title" />
+
         <p>Price: @product.Price</p>
     </div>
 </div>

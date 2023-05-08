@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AssignmentMVC.Migrations.Identity
 {
-    [DbContext(typeof(IdentityContext))]
+    [DbContext(typeof(DataContexts))]
     [Migration("20230424094951_SeedRoles")]
     partial class SeedRoles
     {

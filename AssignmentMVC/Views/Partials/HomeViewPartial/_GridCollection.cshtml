@@ -5,7 +5,7 @@
 @inject ProductService ProductService
 
 @{
-    var productss = ProductService.GetEightAsync().GetAwaiter().GetResult();
+    var products = ProductService.GetEightAsync().GetAwaiter().GetResult();
 }
 
 
@@ -26,16 +26,16 @@
                 <a class="bc-anks" href="#">Interior</a>
                 <a class="bc-anks" href="#">Laptop</a>
                 <a class="bc-anks" href="#">Mobile</a>
-                <a class="bc-anks" href="#">Beuty</a
+                <a class="bc-anks" href="#">Beuty</a>
         </ul>
 
             </div>
 
 
-        @if (productss != null)
+        @if (products != null)
         {
             <div class="bc-grid">
-                @foreach (var item in productss)
+                @foreach (var item in products)
                 {
                     <partial name="/Views/Partials/Reusable/GridCollectionItem.cshtml" model="item" />
                 }

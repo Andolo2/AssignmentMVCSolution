@@ -29,11 +29,19 @@ namespace AssignmentMVC.Repositories
             return null!;
         }
 
+      
+
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> expression)
         {
            return  await _context.Set<TEntity>().Where(expression).ToListAsync();
 
           
+        }
+
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+        {
+            var entities = await _context.Set<TEntity>().ToListAsync();
+            return entities;
         }
 
         public virtual async Task<TEntity> UpdateAsync(TEntity entity)

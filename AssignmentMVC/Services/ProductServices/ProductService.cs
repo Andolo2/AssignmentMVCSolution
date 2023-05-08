@@ -10,13 +10,15 @@ namespace AssignmentMVC.Services.ProductServices;
 public class ProductService
 {
     private readonly DataContexts _context;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public ProductService(DataContexts context)
+    public ProductService(DataContexts context, IWebHostEnvironment webHostEnvironment)
     {
         _context = context;
+        _webHostEnvironment = webHostEnvironment;
     }
 
-    public async Task<bool> CreateAsync(ProductRegistrationViewModel productRegistrationViewModel)
+    public async Task<ProductEntity> CreateAsync(ProductRegistrationViewModel productRegistrationViewModel)
     {
         try
         {
@@ -24,15 +26,32 @@ public class ProductService
 
             _context.Products.Add(productEntity);
             await _context.SaveChangesAsync();
+            return productEntity;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    public async Task<bool> UploadImageAsync(ProductModel product, IFormFile image)
+    {
+        try
+        {
+            string imagePath = $"{_webHostEnvironment.WebRootPath}/images/FromForm/{product.ImageUrl}";
+            await image.CopyToAsync(new FileStream(imagePath, FileMode.Create));
             return true;
-
-
         }
         catch
         {
             return false;
         }
     }
+
+
+
+
+
 
     public async Task<bool> DeleteAsync(int Id)
     {

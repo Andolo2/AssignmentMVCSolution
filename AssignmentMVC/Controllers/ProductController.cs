@@ -13,11 +13,14 @@ namespace AssignmentMVC.Controllers
     {
         private readonly DataContexts _context;
         private readonly ProductService _productService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductController(ProductService productService, DataContexts context)
+
+        public ProductController(ProductService productService, DataContexts context, IWebHostEnvironment webHostEnvironment)
         {
             _productService = productService;
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult ProductPageIndex()
@@ -36,9 +39,9 @@ namespace AssignmentMVC.Controllers
         }
 
 
-        [Authorize(Roles = "System Administrator")]
-
+        //[Authorize(Roles = "System Administrator")]
         [HttpPost]
+
         public async Task<IActionResult> Register(ProductRegistrationViewModel productRegistrationViewModel, bool isNew, bool isPopular, bool isFeatured)
         {
             if (!ModelState.IsValid)
@@ -50,12 +53,37 @@ namespace AssignmentMVC.Controllers
             productRegistrationViewModel.IsPopular = isPopular;
             productRegistrationViewModel.IsFeatured = isFeatured;
 
+            var product = await _productService.CreateAsync(productRegistrationViewModel);
+            if (product != null)
+            {
+                if (productRegistrationViewModel != null)
+                    await _productService.UploadImageAsync(product, productRegistrationViewModel.Image!);
+
+
+                return RedirectToAction("ProductIndex", "Product");
+            }
+
+
+
+
             var entity = productRegistrationViewModel.ToProductEntity();
+                
             _context.Products.Add(entity);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("HomeIndex", "Home");
         }
+
+
+
+
+
+
+
+
+
+
+
 
         public async Task<IActionResult> Delete(int id)
         {
