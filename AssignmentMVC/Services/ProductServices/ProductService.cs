@@ -166,6 +166,21 @@ public class ProductService
         return products;
     }
 
+    public async Task<IEnumerable<ProductModel>> GetFourAsync()
+    {
+        var products = new List<ProductModel>();
+
+        var items = await _context.Products.Take(4).ToListAsync();
+
+        foreach (var item in items)
+        {
+            ProductModel productModel = item;
+            products.Add(productModel);
+        }
+
+        return products;
+    }
+
     public async Task<IEnumerable<ProductModel>> GetFeaturedProductsAsync()
     {
         var products = await _context.Products

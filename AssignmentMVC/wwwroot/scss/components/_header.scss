@@ -1,5 +1,4 @@
-header{
-
+header {
     padding: 15px 0;
 
     @include lg {
@@ -9,28 +8,25 @@ header{
     .container {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        grid-template-areas: "logo btntoggle"
-                                "menu menu";
+        grid-template-areas: "logo btntoggle" "menu menu";
 
-    
-        @include lg{
+
+        @include lg {
             grid-template-columns: 1fr 2fr;
             grid-template-areas: "logo menu";
-            
         }
     }
-     ///////////////////// 
-     
-     .logotype{
+    /////////////////////
+
+    .logotype {
         grid-area: logo;
-       
-     }
-     
-     .Menu{
+    }
+
+    .Menu {
         grid-area: menu;
         font-family: $font-poppins;
-       
-        @include lg{
+
+        @include lg {
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -38,78 +34,82 @@ header{
 
 
 
-        .MenuLinks{
+        .MenuLinks {
+            padding-top: 20px;
 
-            padding-top: 20px ;
-
-            @include lg{
-
-                padding-top: 0px ;
+            @include lg {
+                padding-top: 0px;
             }
-            & > .links{
 
+            & > .links {
                 color: $color-dark-2;
                 display: block;
                 margin: 10px 20px;
                 padding: 10px;
-             
 
-                @include lg{
-                   display: inline-block;
+
+
+                @include lg {
+                    display: inline-block;
                     margin: 0 20px;
                     border: none;
-
                 }
 
-                &:hover{
+                &:hover {
                     color: $color-theme-1;
                 }
-                
             }
         }
 
-        .MenuIcons{
-
+        .MenuIcons {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             text-align: center;
-           
-            & > .links{
+
+            & > .links {
                 margin-left: 15px;
                 color: $color-dark-4;
 
-                &:hover{
+                .badge-warning {
+                    color: red;
+                    position: absolute;
+                    top: 0;
+                    margin-top: 2rem;
+                }
+
+                &:hover {
                     color: $color-dark-2;
                 }
             }
 
-            @include lg{
+            .badge-warning {
+                color: red;
+                position: absolute;
+                top: 0;
+                margin-top: 2rem;
+            }
+
+            @include lg {
                 position: static;
                 padding: 10px;
             }
-          
         }
+    }
 
-     }
-
-    .toggle{
+    .toggle {
         display: flex;
         justify-content: end;
-        
-        .btn-toggle{
+
+        .btn-toggle {
             grid-area: btontoggle;
             transform: scale(1.5);
-          
-    
+
+
             @include lg {
                 display: none;
             }
-    
-            
-         }
+        }
     }
-        
-    
 }

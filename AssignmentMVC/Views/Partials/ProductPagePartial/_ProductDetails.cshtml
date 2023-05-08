@@ -1,18 +1,45 @@
-﻿<section class="Product-details">
+﻿
+@inject ProductService ProductService
+
+@{
+    var Sixproducts = ProductService.GetTwoAsync().GetAwaiter().GetResult();
+}
+
+@{
+    var fourProducts = ProductService.GetFourAsync().GetAwaiter().GetResult();
+}
+
+
+
+
+<section class="Product-details">
     <div class="container">
         <!--Upper part of page START-->
         <div class="bc-grid">
             <div class="product-showcase">
-                <div class="product-showcase-large">
-                    <img src="images/placeholders/501x430.svg" alt="banner">
-                </div>
-                <div class="product-showcase-small">
-                    <img src="images/placeholders/120x113.svg" alt="banner">
-                    <img src="images/placeholders/120x113.svg" alt="banner">
-                    <img src="images/placeholders/120x113.svg" alt="banner">
-                    <img src="images/placeholders/120x113.svg" alt="banner">
 
-                </div>
+
+
+
+                @foreach (var product in Sixproducts)
+                {
+                    <div class="product-showcase-large">
+                        <img src="~/images/FromForm/@product.ImageUrl" alt="@product.Title" />
+                    </div>
+
+                    <div class="product-showcase-small">
+                    @foreach (var fourproduct in fourProducts)
+                    {                       
+                       <img src="~/images/FromForm/@fourproduct.ImageUrl" alt="@fourproduct.Title" />  
+                    }
+                    </div>
+                }
+
+
+
+
+
+             
             </div>
 
             <div class="add-product">
@@ -75,23 +102,3 @@
 
 </section>
 
-<section class="product-detals-body">
-    <div class="container">
-        <h3>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</h3>
-
-        <div class="bc-grid">
-
-            <div class="body-text">
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et cusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata santus est Lorem ipsum dolor sit amet. Lorem ipsum dolor.</p>
-                <p>accusantium laborum pretium hic excepturi harum repellat facilisis convallis potenti, adipiscing lectus aliqua. Asperiores repudiandae ipsam error erat, accusamus, cum taciti unde?</p>
-                <p>Praesentium, pariatur, tempora consequuntur purus sapiente, iaculis vitae consequatur, rhoncus earum eleifend, hendrerit ipsum rhoncus ex error, impedit! Alias laboris sequi curae aptent? Eu sagittis eu, distinctio tortor? Dapibus delectus! Consequuntur luctus. </p>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et cusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata santus est Lorem ipsum dolor sit amet. Lorem ipsum dolor.</p>
-            </div>
-            <div class="body-image">
-                <img src="images/placeholders/469x356.svg" alt="banner">
-            </div>
-        </div>
-
-
-    </div>
-</section>

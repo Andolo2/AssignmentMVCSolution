@@ -5,7 +5,7 @@
 @inject ProductService ProductService
 
 @{
-    var products = ProductService.GetFeaturedProductsAsync().GetAwaiter().GetResult();
+    var products = ProductService.GetThreeAsync().GetAwaiter().GetResult();
 }
    <!-- Bottom portion, three cards START-->
 
