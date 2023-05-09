@@ -3,16 +3,30 @@
 
     & > .container {
 
+        .NewProduct {
+            display: flex;
+            justify-content: center;
+
+            font-size: larger;
+            margin-bottom: 2rem;
+            text-decoration: dashed;
+
+
+        }
 
         .ProductOverview {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             grid-column-gap: 30px;
             grid-row-gap: 50px;
-           
+
 
             .ProductOverview-item {
-                display: flex;
+
+                img {
+                    width: 200px;
+                    height: 200px;
+                }
             }
         }
     }

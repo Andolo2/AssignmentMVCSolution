@@ -47,6 +47,9 @@ button:hover {
 
 header {
   padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 @media (min-width: 992px) {
   header {
@@ -54,64 +57,77 @@ header {
   }
 }
 header .container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas: "logo btntoggle" "menu menu";
-}
-@media (min-width: 992px) {
-  header .container {
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: "logo menu";
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 header .logotype {
-  grid-area: logo;
+  margin-right: auto;
 }
 header .Menu {
-  grid-area: menu;
-  font-family: "Poppins", sans-serif;
+  position: fixed;
+  top: 70px;
+  left: -100%;
+  height: calc(100vh - 70px);
+  width: 100%;
+  background-color: #f2f2f2;
+  transition: all 0.5s ease-out;
+  z-index: 9999;
+}
+header .Menu.open {
+  left: 0;
 }
 @media (min-width: 992px) {
   header .Menu {
+    position: static;
+    height: auto;
+    width: auto;
+    margin-left: auto;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
+    background-color: transparent;
   }
 }
 header .Menu .MenuLinks {
-  padding-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 @media (min-width: 992px) {
   header .Menu .MenuLinks {
-    padding-top: 0px;
+    flex-direction: row;
+    padding: 0;
   }
 }
 header .Menu .MenuLinks > .links {
-  color: #292929;
+  color: #333;
   display: block;
-  margin: 10px 20px;
+  margin: 10px 0;
   padding: 10px;
 }
 @media (min-width: 992px) {
   header .Menu .MenuLinks > .links {
     display: inline-block;
     margin: 0 20px;
+    padding: 10px 20px;
     border: none;
   }
 }
 header .Menu .MenuLinks > .links:hover {
-  color: #FA3150;
+  color: #444;
 }
 header .Menu .MenuIcons {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 header .Menu .MenuIcons > .links {
   margin-left: 15px;
-  color: #AEAEAE;
+  color: #666;
 }
 header .Menu .MenuIcons > .links .badge-warning {
   color: red;
@@ -120,27 +136,36 @@ header .Menu .MenuIcons > .links .badge-warning {
   margin-top: 2rem;
 }
 header .Menu .MenuIcons > .links:hover {
-  color: #292929;
+  color: #444;
 }
 header .Menu .MenuIcons .badge-warning {
   color: red;
   position: absolute;
   top: 0;
   margin-top: 2rem;
+  margin-left: -5px;
 }
 @media (min-width: 992px) {
   header .Menu .MenuIcons {
-    position: static;
-    padding: 10px;
+    margin-top: 0;
+    margin-left: auto;
   }
 }
 header .toggle {
-  display: flex;
-  justify-content: end;
+  display: block;
+  margin-left: auto;
 }
 header .toggle .btn-toggle {
-  grid-area: btontoggle;
-  transform: scale(1.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+header .toggle .btn-toggle:focus {
+  outline: none;
 }
 @media (min-width: 992px) {
   header .toggle .btn-toggle {
@@ -274,7 +299,7 @@ header .toggle .btn-toggle {
 }
 .collection-item img {
   width: 100%;
-  height: auto;
+  height: 50%;
 }
 .collection-item .body {
   display: flex;
@@ -284,6 +309,7 @@ header .toggle .btn-toggle {
   margin-top: 10px;
   font-family: "Poppins", sans-serif;
   padding: 0 10px 10px 10px;
+  height: 50%;
 }
 .collection-item .body > .info {
   padding: 2px;
@@ -438,7 +464,6 @@ header .toggle .btn-toggle {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 40px;
-  max-width: 369px;
 }
 @media (min-width: 768px) {
   .top-selling > .container > .bc-grid {
@@ -1037,12 +1062,20 @@ header .toggle .btn-toggle {
   height: 300px;
 }
 
+.created-products > .container .NewProduct {
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  margin-bottom: 2rem;
+  text-decoration: dashed;
+}
 .created-products > .container .ProductOverview {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 50px;
 }
-.created-products > .container .ProductOverview .ProductOverview-item {
-  display: flex;
+.created-products > .container .ProductOverview .ProductOverview-item img {
+  width: 200px;
+  height: 200px;
 }

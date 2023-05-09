@@ -1,76 +1,88 @@
 header {
     padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    @include lg {
+    @media (min-width: 992px) {
         padding: 30px 0;
     }
 
     .container {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-areas: "logo btntoggle" "menu menu";
-
-
-        @include lg {
-            grid-template-columns: 1fr 2fr;
-            grid-template-areas: "logo menu";
-        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
     }
-    /////////////////////
 
     .logotype {
-        grid-area: logo;
+        margin-right: auto;
     }
 
     .Menu {
-        grid-area: menu;
-        font-family: $font-poppins;
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        height: calc(100vh - 70px);
+        width: 100%;
+        background-color: #f2f2f2;
+        transition: all 0.5s ease-out;
+        z-index: 9999; 
 
-        @include lg {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
+        &.open {
+            left: 0;
         }
 
-
+        @media (min-width: 992px) {
+            position: static;
+            height: auto;
+            width: auto;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            background-color: transparent;
+        }
 
         .MenuLinks {
-            padding-top: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-            @include lg {
-                padding-top: 0px;
+            @media (min-width: 992px) {
+                flex-direction: row;
+                padding: 0;
             }
 
             & > .links {
-                color: $color-dark-2;
+                color: #333;
                 display: block;
-                margin: 10px 20px;
+                margin: 10px 0;
                 padding: 10px;
 
-
-
-                @include lg {
+                @media (min-width: 992px) {
                     display: inline-block;
                     margin: 0 20px;
+                    padding: 10px 20px;
                     border: none;
                 }
 
                 &:hover {
-                    color: $color-theme-1;
+                    color: #444;
                 }
             }
         }
 
         .MenuIcons {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
 
             & > .links {
                 margin-left: 15px;
-                color: $color-dark-4;
+                color: #666;
 
                 .badge-warning {
                     color: red;
@@ -80,7 +92,7 @@ header {
                 }
 
                 &:hover {
-                    color: $color-dark-2;
+                    color: #444;
                 }
             }
 
@@ -89,25 +101,34 @@ header {
                 position: absolute;
                 top: 0;
                 margin-top: 2rem;
+                margin-left: -5px;
             }
 
-            @include lg {
-                position: static;
-                padding: 10px;
+            @media (min-width: 992px) {
+                margin-top: 0;
+                margin-left: auto;
             }
         }
     }
 
     .toggle {
-        display: flex;
-        justify-content: end;
+        display: block;
+        margin-left: auto;
 
         .btn-toggle {
-            grid-area: btontoggle;
-            transform: scale(1.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
 
+            &:focus {
+                outline: none;
+            }
 
-            @include lg {
+            @media (min-width: 992px) {
                 display: none;
             }
         }
