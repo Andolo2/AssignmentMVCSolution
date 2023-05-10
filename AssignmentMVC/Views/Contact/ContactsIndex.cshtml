@@ -14,35 +14,38 @@
 <!--Contact form-->
 <section class="contactform-section">
     <div class="container">
+
+        @Html.ValidationSummary(false, "", new { @class = "error" })
+        <div asp-validation-summary="ModelOnly" class="error"></div>
         <form class="contactform" method="post" novalidate  >
             <div class="form">
                 <div class="left">
-                    <label asp-for="Name"></label>
-                    <input asp-for="Name"  />
-                    <span asp-validation-for="Name"></span>
+                    <label asp-for="Name">Your Name</label>
+                    <input asp-for="Name" id="ContactNameId" />
+                   @* <span  asp-validation-for="Name"></span>*@
                     <span class="error-message"></span>
 
-                    <label asp-for="PhoneNumber"></label>
-                    <input asp-for="PhoneNumber" />
-                    <span asp-validation-for="PhoneNumber"></span>
+                    <label asp-for="PhoneNumber">Phone Number</label>
+                    <input asp-for="PhoneNumber" id="ContactPhoneId" />
+                @*    <span asp-validation-for="PhoneNumber"></span>*@
                     <span class="error-message"></span>
                 </div>
                 <div class="right">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" />
-                    <span asp-validation-for="Email"></span>
+                    <label asp-for="Email">Your Email</label>
+                    <input asp-for="Email" id="ContactEmailId" />
+                    @*<span asp-validation-for="Email"></span>*@
                     <span class="error-message"></span>
 
-                    <label asp-for="Company"></label>
-                    <input asp-for="Company" />
-                    <span asp-validation-for="Company"></span>
+                    <label asp-for="Company">Company</label>
+                    <input asp-for="Company" id="ContactCompanyId" />
+                    @*<span asp-validation-for="Company"></span>*@
                     <span class="error-message"></span>
                 </div>
             </div>
             <div class="comments">
-                <label asp-for="Comment"></label>
-                    <textarea asp-for="Comment"></textarea>
-                <span asp-validation-for="Comment"></span>
+                <label asp-for="Comment">Something Write</label>
+                <textarea id="ContactCommentId" asp-for="Comment"></textarea>
+              @*  <span asp-validation-for="Comment"></span>*@
                 <span class="error-message"></span>
 
 

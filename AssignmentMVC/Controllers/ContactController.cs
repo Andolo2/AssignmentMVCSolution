@@ -15,14 +15,11 @@ namespace AssignmentMVC.Controllers
             _contactContext = contactContext;
         }
 
-        //[HttpPost]
-        public IActionResult ContactsIndex(ContactViewModel model)
+        [HttpPost]
+        public async Task<IActionResult> ContactsIndexAsync(ContactViewModel model)
         {
-            System.Diagnostics.Debug.WriteLine($"Current DbContext: {_contactContext.GetType().Name}");
             if (ModelState.IsValid)
             {
-              
-
                 var contact = new ContactModel
                 {
                     Name = model.Name,
@@ -34,7 +31,7 @@ namespace AssignmentMVC.Controllers
                 };
 
                 _contactContext.Contacts.Add(contact);
-                _contactContext.SaveChanges();
+                await _contactContext.SaveChangesAsync();
 
                 return RedirectToAction("ThankYou");
             }
@@ -42,12 +39,13 @@ namespace AssignmentMVC.Controllers
             {
                 return View("ContactsIndex", model);
             }
-
-
-
-
-  
         }
+
+        public IActionResult ContactsIndexAsync()
+        {
+            return View();
+        }
+
 
         public IActionResult ThankYou()
         {

@@ -21,7 +21,8 @@
                     var user = await _userManager.GetUserAsync(User);
                     if (await _userManager.IsInRoleAsync(user, "System Administrator"))
                     {
-                        <a class="links" asp-controller="Product" asp-action="ProductIndex">PRODUCTSINDEX</a>
+                        <a class="links" asp-controller="Product" asp-action="ProductIndex">All Products</a>
+                        <a class="links" asp-controller="Product" asp-action="RegisterProduct">Create Product</a>
                        
                         <a class="links" asp-controller="Admin" asp-action="AdminIndex">All Users</a>
                     }
