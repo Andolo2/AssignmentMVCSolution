@@ -17,11 +17,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // ADD DATACONTEXT START
 builder.Services.AddDbContext<DataContexts>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("ProductSql")));
-builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("UserSql")));
 builder.Services.AddDbContext<ContactContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("ContactSql")));
+builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("UserSql")));
 
 
-// ADD DATACONTEXT END
+
+
 
 // REGISTER SERVICES START //
 builder.Services.AddControllersWithViews();
@@ -35,7 +36,7 @@ builder.Services.AddScoped<AuthenticationService>();  //Added for Dependency inj
 
 
 
-// REGISTER SERVICES END //
+
 
 // REGISTER IDENTITY START //
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>

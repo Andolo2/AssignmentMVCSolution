@@ -14,34 +14,41 @@
 <!--Contact form-->
 <section class="contactform-section">
     <div class="container">
-        <form class="contactform" method="post" novalidate >
+        <form class="contactform" method="post" novalidate  >
             <div class="form">
                 <div class="left">
-                    <label for="name-input">Name</label>
-                    <input type="text" id="name-input" name="name" required>
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name"  />
+                    <span asp-validation-for="Name"></span>
                     <span class="error-message"></span>
 
-                    <label for="phone-input">Phone number</label>
-                    <input type="tel" id="phone-input" name="phone" required>
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" />
+                    <span asp-validation-for="PhoneNumber"></span>
                     <span class="error-message"></span>
                 </div>
                 <div class="right">
-                    <label for="email-input">Email</label>
-                    <input type="email" id="email-input" name="email" required>
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
                     <span class="error-message"></span>
 
-                    <label for="company-input">Company</label>
-                    <input type="text" id="company-input" name="company" required>
+                    <label asp-for="Company"></label>
+                    <input asp-for="Company" />
+                    <span asp-validation-for="Company"></span>
                     <span class="error-message"></span>
                 </div>
             </div>
             <div class="comments">
-                <label for="comment-input">Comment</label>
-                <textarea id="comment-input" name="comment" required></textarea>
+                <label asp-for="Comment"></label>
+                    <textarea asp-for="Comment"></textarea>
+                <span asp-validation-for="Comment"></span>
                 <span class="error-message"></span>
+
+
                 <div class="radio">
-                    <input class="form-check-input" type="checkbox" id="save-info" name="save-info">
-                    <label class="form-check-label" for="save-info">Save my name, email, and website in this browser for the next time I comment.</label>
+                    <input asp-for="SaveDetails" class="form-check-input" type="checkbox" id="save-info">
+                    <label asp-for="SaveDetails" class="form-check-label" >Save my name, email, and website in this browser for the next time I comment.</label>
                 </div>
                 <button type="submit" id="submit-button" >Submit</button>
             </div>

@@ -1,4 +1,4 @@
-﻿using AssignmentMVC.Models.Entities;
+﻿
 using AssignmentMVC.Models.Models;
 using Microsoft.EntityFrameworkCore;
 

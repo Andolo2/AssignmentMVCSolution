@@ -18,25 +18,35 @@ namespace AssignmentMVC.Controllers
         //[HttpPost]
         public IActionResult ContactsIndex(ContactViewModel model)
         {
-            if (!ModelState.IsValid)
+            System.Diagnostics.Debug.WriteLine($"Current DbContext: {_contactContext.GetType().Name}");
+            if (ModelState.IsValid)
+            {
+              
+
+                var contact = new ContactModel
+                {
+                    Name = model.Name,
+                    PhoneNumber = model.PhoneNumber,
+                    Email = model.Email,
+                    Company = model.Company,
+                    Comment = model.Comment,
+                    Timestamp = DateTime.Now
+                };
+
+                _contactContext.Contacts.Add(contact);
+                _contactContext.SaveChanges();
+
+                return RedirectToAction("ThankYou");
+            }
+            else
             {
                 return View("ContactsIndex", model);
             }
 
-            var contact = new ContactModel
-            {
-                Name = model.Name,
-                PhoneNumber = model.PhoneNumber,
-                Email = model.Email,
-                Company = model.Company,
-                Comment = model.Comment,
-                Timestamp = DateTime.Now
-            };
 
-            _contactContext.Contacts.Add(contact);
-            _contactContext.SaveChanges();
 
-            return RedirectToAction("ThankYou");  //ThankYou
+
+  
         }
 
         public IActionResult ThankYou()

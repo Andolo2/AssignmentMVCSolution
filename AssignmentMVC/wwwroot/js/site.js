@@ -22,8 +22,6 @@ SetHeight();
 
 ///// Fixed footer END /////
 
-///// ContactFormValidation START /////
-
 ///// ContactFormValidation END /////
 
     const menu = document.querySelector("#menu");
