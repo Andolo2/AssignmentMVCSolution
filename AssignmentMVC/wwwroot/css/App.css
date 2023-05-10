@@ -45,6 +45,12 @@ button:hover {
   color: #FFFFFF;
 }
 
+.error-message {
+  display: block;
+  color: red;
+  font-size: 10px;
+}
+
 header {
   padding: 15px 0;
   display: flex;
@@ -952,12 +958,6 @@ header .toggle .btn-toggle:focus {
   .contactform-section > .container .contactform .form {
     grid-template-columns: repeat(2, 2fr);
   }
-}
-.contactform-section > .container .contactform .error-message {
-  display: block;
-  color: red;
-  font-size: 10px;
-  height: 20px;
 }
 .contactform-section > .container .comments {
   display: flex;

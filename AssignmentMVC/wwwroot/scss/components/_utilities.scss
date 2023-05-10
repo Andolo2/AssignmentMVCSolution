@@ -42,3 +42,10 @@ button {
     background-color: $color-theme-1;
     color: $color-white;
 }
+
+.error-message {
+    display: block;
+    color: red;
+    font-size: 10px;
+    
+}

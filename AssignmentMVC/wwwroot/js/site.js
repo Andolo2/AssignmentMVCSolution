@@ -148,15 +148,81 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /// Register account validation
 
-const form = document.querySelector('.form-registration');
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.form-registration');
 
-form.addEventListener('submit', (event) => {
-    const firstName = document.getElementById('register-firstname').value;
-    const lastName = document.getElementById('register-lastname').value;
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Add this line to prevent form submission
 
-    if (firstName.length < 2 || lastName.length < 2) {
-        event.preventDefault();
-        const errorMessage = document.querySelector('.error-message');
-        errorMessage.textContent = 'Please enter a valid name';
-    }
+        const firstName = document.getElementById('register-firstname').value;
+        const lastName = document.getElementById('register-lastname').value;
+        const streetname = document.getElementById('register-streetname').value;
+        const postalcode = document.getElementById('register-postalcode').value;
+        const mobile = document.getElementById('register-mobile').value;
+        const city = document.getElementById('register-city').value;
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+
+        const errorMessageFirstName = document.getElementById('firstname-error-message');
+        const errorMessageLastName = document.getElementById('lastname-error-message');
+        const errorMessageStreetName = document.getElementById('streetname-error-message');
+        const errorMessagePostalCode = document.getElementById('postalcode-error-message');
+        const errorMessageMobile = document.getElementById('mobile-error-message');
+        const errorMessageCity = document.getElementById('city-error-message');
+        const errorMessageEmail = document.getElementById('email-error-message');
+        const errorMessagePassword = document.getElementById('password-error-message');
+
+        if (firstName.length < 2) {
+            errorMessageFirstName.textContent = 'First name must be minimum 2 characters';
+        } else {
+            errorMessageFirstName.textContent = '';
+        }
+
+        if (lastName.length < 2) {
+            errorMessageLastName.textContent = 'Last name must be minimum 2 characters';
+        } else {
+            errorMessageLastName.textContent = '';
+        }
+
+        if (streetname.length < 2) {
+            errorMessageStreetName.textContent = 'Street name must be minimum 2 characters';
+        } else {
+            errorMessageStreetName.textContent = '';
+        }
+
+        if (postalcode.length !== 6) {
+            errorMessagePostalCode.textContent = 'Postal code must be 6 characters';
+        } else {
+            errorMessagePostalCode.textContent = '';
+        }
+
+        if (mobile.length < 6) {
+            errorMessageMobile.textContent = 'Mobile number code must be 6 characters';
+        } else {
+            errorMessageMobile.textContent = '';
+        }
+
+        if (city.length < 2) {
+            errorMessageCity.textContent = 'City name must be minimum 2 characters';
+        } else {
+            errorMessageCity.textContent = '';
+        }
+
+        if (email.length < 4) {
+            errorMessageEmail.textContent = 'Email must be minimum 4 characters';
+        } else {
+            errorMessageEmail.textContent = '';
+        }
+
+        if (password.length < 8) {
+            errorMessagePassword.textContent = 'Password must be minimum 8 characters';
+        } else {
+            errorMessagePassword.textContent = '';
+        }
+
+        // Check if all error messages are empty before submitting the form
+        if (errorMessageFirstName.textContent === '' && errorMessageLastName.textContent === '' && errorMessageStreetName.textContent === '' && errorMessagePostalCode.textContent === '' && errorMessageMobile.textContent === '' && errorMessageCity.textContent === '' && errorMessageEmail.textContent === '' && errorMessagePassword.textContent === '') {
+            form.submit();
+        }
+    });
 });
