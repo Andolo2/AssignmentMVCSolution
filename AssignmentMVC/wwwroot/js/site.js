@@ -226,3 +226,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+/// Login form validation
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.signupform');
+
+    form.addEventListener('submit', function (event) {
+        const loginEmail = document.getElementById('Login-Email').value;
+        const loginPassword = document.getElementById('Login-password').value;
+
+        const LoginErrorEmail = document.getElementById('login-error-message-email');
+        const LoginErrorPassword = document.getElementById('login-error-message-password')
+
+        if (loginEmail.length < 4) {
+            LoginErrorEmail.textContent = 'Email is too short';
+            event.preventDefault();
+        } else {
+            LoginErrorEmail.textContent = '';
+        }
+
+        if (loginPassword.length < 6) {
+            LoginErrorPassword.textContent = 'Password is too short';
+            event.preventDefault();
+        } else {
+            LoginErrorPassword.textContent = '';
+        }
+    });
+});

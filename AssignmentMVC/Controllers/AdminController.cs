@@ -19,11 +19,7 @@ namespace AssignmentMVC.Controllers
         }
 
 
-        //public async Task<IActionResult> AdminIndex() // Get all Users from database and add to a list.
-        //{
-        //    var users = await _userManager.Users.ToListAsync();
-        //    return View(users);
-        //}
+    
 
         public async Task<IActionResult> AdminIndex() // Get all Users from database and add to a list.
         {

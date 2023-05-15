@@ -25,31 +25,36 @@
             @if (products != null)
             {
 
-                foreach (var product in products)
-                {
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in products)
+                        {
+                            <tr class="table-body">
+                                <td class="table-image">
+                                    <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">
+                                        <img src="~/images/FromForm/@product.ImageUrl" alt="@product.Title" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">@product.Title</a>
+                                </td>
+                                <td>@product.Price</td>
+                            </tr>
+                        }
 
-                    <div class="ProductOverview-item">
-
-                        <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">
-                          
-                            <img class="CreatedImage" src="~/images/FromForm/@product.ImageUrl" alt="@product.Title" />
-                            <div class="title">@product.Title</div>
-                            <div class="price">@product.Price</div>
-                            
-                            <i class="tocart fa-regular fa-cart-plus"></i>
-
-
-
-
-
-                        </a>
-
-                    </div>
-
-                 
-                }
+                    </tbody>
+                </table>
             }
 
         </div>
     </div>
 </div>
+
+

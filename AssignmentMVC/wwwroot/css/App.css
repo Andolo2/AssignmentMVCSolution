@@ -1069,13 +1069,14 @@ header .toggle .btn-toggle:focus {
   margin-bottom: 2rem;
   text-decoration: dashed;
 }
-.created-products > .container .ProductOverview {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 30px;
-  grid-row-gap: 50px;
+.created-products > .container .ProductOverview .product-table {
+  width: 100%;
 }
-.created-products > .container .ProductOverview .ProductOverview-item img {
-  width: 200px;
-  height: 200px;
+.created-products > .container .ProductOverview .product-table .table-body {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 1.5rem;
+}
+.created-products > .container .ProductOverview .product-table .table-body .table-image > a > img {
+  height: 300px;
+  width: 300px;
 }

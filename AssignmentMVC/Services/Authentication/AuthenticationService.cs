@@ -64,9 +64,6 @@ namespace AssignmentMVC.Services.Authentication
         }
 
 
-
-
-
         public async Task<bool> LoginAsync(UserLoginViewModel userLoginViewModel)
         {
             var appUser = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == userLoginViewModel.Email);
@@ -79,6 +76,8 @@ namespace AssignmentMVC.Services.Authentication
 
             return false;
         }
+
+
 
 
     }
