@@ -47,7 +47,7 @@ namespace AssignmentMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangeUserRoleAsync(string userId, string newRoleName)
+        public async Task<IActionResult> ChangeUserRoleAsync(string userId, string newRoleName) 
         {
             bool result = await _auth.ChangeUserRoleAsync(userId, newRoleName);
             if (result)
@@ -61,6 +61,24 @@ namespace AssignmentMVC.Controllers
                 return RedirectToAction("AdminIndex", "Admin"); // Redirect to an error page or appropriate action
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUserAsync(string userId)
+        {
+            var success = await _auth.DeleteUserAsync(userId);
+            if (success)
+            {
+                return RedirectToAction("AdminIndex");
+
+            }
+            else
+            {
+                return RedirectToAction("AdminIndex");
+
+            }
+        }
+
+      
 
 
 

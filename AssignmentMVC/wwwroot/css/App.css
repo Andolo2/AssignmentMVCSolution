@@ -1080,3 +1080,14 @@ header .toggle .btn-toggle:focus {
   height: 300px;
   width: 300px;
 }
+
+.manage-users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+.manage-users > .container-fluid img {
+  width: 100px;
+  height: 100px;
+}

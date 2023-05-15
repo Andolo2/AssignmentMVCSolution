@@ -1,5 +1,6 @@
 ﻿using AssignmentMVC.Services.Authentication;
 using AssignmentMVC.ViewModels.LoginViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -59,6 +60,30 @@ namespace AssignmentMVC.Controllers
         //    return View(userRegisterViewModel);
         //}
 
+        //[Authorize]
+        [HttpPost] // kägg till tom som tar emot
+        public async Task<IActionResult> BackofficeRegisterIndex(UserRegisterViewModel userRegisterViewModel, IFormFile profilePicture)
+        {
+            if (ModelState.IsValid)
+            {
+                if (await _auth.UserAlreadyExistsAsync(x => x.Email == userRegisterViewModel.Email))
+                    ModelState.AddModelError("", "User with this email exists");
+
+                if (await _auth.RegisterUserAsync(userRegisterViewModel, profilePicture))
+                {
+                    return RedirectToAction("LoginIndex", "Login");
+                }
+            }
+
+            return View(userRegisterViewModel);
+        }
+
+        public IActionResult BackofficeRegisterIndex(UserRegisterViewModel userRegisterViewModel)
+        {
+            return View(userRegisterViewModel);
+        }
+
+     
 
     }
 }

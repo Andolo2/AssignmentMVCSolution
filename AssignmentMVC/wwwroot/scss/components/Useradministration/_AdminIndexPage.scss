@@ -1,0 +1,17 @@
+﻿.manage-users {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 3rem;
+
+    & > .container-fluid {
+
+        img{
+            width: 100px;
+            height:100px;
+        }
+
+        .user-table {
+        }
+    }
+}

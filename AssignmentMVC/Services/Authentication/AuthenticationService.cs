@@ -187,6 +187,17 @@ namespace AssignmentMVC.Services.Authentication
             return result.Succeeded;
         }
 
+        public async Task<bool> DeleteUserAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return false; // User not found
+            }
+
+            var result = await _userManager.DeleteAsync(user);
+            return result.Succeeded;
+        }
 
     }
 }
