@@ -10,7 +10,7 @@
        
         <div asp-validation-summary="ModelOnly" class="error"></div>
 
-        <form class="form-registration" method="post">
+        <form enctype="multipart/form-data" class="form-registration" method="post">
 
             <div class="left">
                 <label asp-for="FirstName"></label>
@@ -81,7 +81,7 @@
                 <span class="error-message"></span>
 
                 <label asp-for="ImageFile"></label>
-                <input asp-for="ImageFile" />
+                <input type="file" asp-for="ImageFile" id="profilePicture" name="profilePicture">
                 <span asp-validation-for="ImageFile"></span>
                 <span class="error-message"></span>
             </div>

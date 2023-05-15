@@ -13,14 +13,15 @@ namespace AssignmentMVC.Services.Authentication
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-     
-        public AuthenticationService(UserManager<AppUser> userManager, AddressService addressService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public AuthenticationService(UserManager<AppUser> userManager, AddressService addressService, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, IWebHostEnvironment webHostEnvironment)
         {
             _userManager = userManager;
             _addressService = addressService;
             _signInManager = signInManager;
             _roleManager = roleManager;
-
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<bool> UserAlreadyExistsAsync(Expression<Func<AppUser, bool>> expression)
@@ -28,7 +29,8 @@ namespace AssignmentMVC.Services.Authentication
             return await _userManager.Users.AnyAsync(expression);
         }
 
-        public async Task<bool> RegisterUserAsync(UserRegisterViewModel userRegisterViewModel)
+
+        public async Task<bool> RegisterUserAsync(UserRegisterViewModel userRegisterViewModel, IFormFile profilePicture)
         {
             AppUser appUser = userRegisterViewModel;
             var roleName = "User";
@@ -38,7 +40,6 @@ namespace AssignmentMVC.Services.Authentication
                 await _roleManager.CreateAsync(new IdentityRole("System Administrator"));
                 await _roleManager.CreateAsync(new IdentityRole("User"));
             }
-
 
             if (!await _userManager.Users.AnyAsync())
             {
@@ -56,12 +57,102 @@ namespace AssignmentMVC.Services.Authentication
                 {
                     await _addressService.AddAdressAsync(appUser, addressEntity);
                 }
+
+                if (profilePicture != null)
+                {
+                    appUser.ProfileImageUrl = await SaveProfilePictureAsync(profilePicture);
+                    await _userManager.UpdateAsync(appUser);
+                }
+
                 return true;
             }
+
             return false;
-
-
         }
+
+        public async Task<string> SaveProfilePictureAsync(IFormFile profilePicture)
+        {
+            if (profilePicture == null || profilePicture.Length == 0)
+            {
+                return null; // No file to save
+            }
+
+            var uploadsDirectory = Path.Combine(_webHostEnvironment.WebRootPath, "images/profilepictures");
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(profilePicture.FileName);
+            var filePath = Path.Combine(uploadsDirectory, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await profilePicture.CopyToAsync(stream);
+            }
+
+            return fileName;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ////public async Task<bool> RegisterUserAsync(UserRegisterViewModel userRegisterViewModel)
+        ////{
+        ////    AppUser appUser = userRegisterViewModel;
+        ////    var roleName = "User";
+
+        ////    if (!await _roleManager.Roles.AnyAsync())
+        ////    {
+        ////        await _roleManager.CreateAsync(new IdentityRole("System Administrator"));
+        ////        await _roleManager.CreateAsync(new IdentityRole("User"));
+        ////    }
+
+
+        ////    if (!await _userManager.Users.AnyAsync())
+        ////    {
+        ////        roleName = "System Administrator";
+        ////    }
+
+        ////    var result = await _userManager.CreateAsync(appUser, userRegisterViewModel.Password);
+        ////    if (result.Succeeded)
+        ////    {
+        ////        await _userManager.AddToRoleAsync(appUser, roleName);
+
+        ////        var addressEntity = await _addressService.GetOrCreateAsync(userRegisterViewModel);
+
+        ////        if (addressEntity != null)
+        ////        {
+        ////            await _addressService.AddAdressAsync(appUser, addressEntity);
+        ////        }
+        ////        return true;
+        ////    }
+        ////    return false;
+
+
+        ////}
 
 
         public async Task<bool> LoginAsync(UserLoginViewModel userLoginViewModel)
