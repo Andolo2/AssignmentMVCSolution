@@ -77,7 +77,24 @@ namespace AssignmentMVC.Services.Authentication
             return false;
         }
 
+        public async Task<bool> ChangeUserRoleAsync(string userId, string newRoleName)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return false; // User not found
+            }
 
+            var existingRoles = await _userManager.GetRolesAsync(user);
+            var result = await _userManager.RemoveFromRolesAsync(user, existingRoles);
+            if (!result.Succeeded)
+            {
+                return false; // Role removal failed
+            }
+
+            result = await _userManager.AddToRoleAsync(user, newRoleName);
+            return result.Succeeded;
+        }
 
 
     }
