@@ -27,6 +27,8 @@ namespace AssignmentMVC.ViewModels.RegisterProduct
         [Required(ErrorMessage = "Add a product price")]
         [DisplayName("Product Price: ")]
         [DataType(DataType.Currency)]
+        [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Invalid price format")]
+
         public decimal Price { get; set; }
 
         [DisplayName("Is new: ")]

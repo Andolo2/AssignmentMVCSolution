@@ -95,30 +95,6 @@ namespace AssignmentMVC.Services.Authentication
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         ////public async Task<bool> RegisterUserAsync(UserRegisterViewModel userRegisterViewModel)
         ////{
         ////    AppUser appUser = userRegisterViewModel;

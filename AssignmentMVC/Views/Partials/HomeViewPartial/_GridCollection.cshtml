@@ -16,17 +16,17 @@
             <div class="bc-top">
             <h2 class="bc-title">Best collection</h2>
 
-            <ul>
-                  <a class="bc-anks" href="#">All</a>
-                <a class="bc-anks" href="#">Bags</a>
-                <a class="bc-anks" href="#">Dress</a>
-                <a class="bc-anks" href="#">Decoration</a>
-                <a class="bc-anks" href="#">Essentials</a>
-                <a class="bc-anks" href="#">Interior</a>
-                <a class="bc-anks" href="#">Laptop</a>
-                <a class="bc-anks" href="#">Mobile</a>
-                <a class="bc-anks" href="#">Beuty</a>
-        </ul>
+            <ul class="bc-link-collection">
+                <li <a class="bc-links" asp-page="/LinkTo">All</a></li>
+                <li <a class="bc-links" asp-page="/LinkTo">Bags</a></li>
+                <li <a class="bc-links" asp-page="/LinkTo">Dress</a></li>
+                <li <a class="bc-links" asp-page="/LinkTo">Decoration</a></li>
+                <li <a class="bc-links" asp-page="/LinkTo">Essentials</a></li>
+                <li <a class="bc-links" asp-page="/LinkTo">Interior</a></li>
+                <li <a class="bc-links" asp-page="/LinkTo">Laptop</a></li>
+                <li <a class="bc-links" asp-page="/LinkTo">Mobile</a></li>
+                <li <a class="bc-links" asp-page="/LinkTo">Beauty</a></li>
+            </ul>
 
             </div>
 
@@ -34,7 +34,7 @@
         @if (products != null)
         {
             <div class="bc-grid">
-                @foreach (var product in products)
+                @foreach (var product in products.Where(p => p.IsPopular).Take(8))
                 {
 
 

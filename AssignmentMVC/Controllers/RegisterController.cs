@@ -41,27 +41,10 @@ namespace AssignmentMVC.Controllers
             return View(userRegisterViewModel);
         }
 
-        //public async Task<IActionResult> RegisterIndex(UserRegisterViewModel userRegisterViewModel)
-        //{
+     
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        if(await _auth.UserAlreadyExistsAsync(x => x.Email == userRegisterViewModel.Email))
-        //            ModelState.AddModelError("", "User with this email exists");
-
-
-        //        if (await _auth.RegisterUserAsync(userRegisterViewModel))
-        //        {
-        //            return RedirectToAction("LoginIndex", "Login");
-        //        }
-
-
-        //    }
-        //    return View(userRegisterViewModel);
-        //}
-
-        //[Authorize]
-        [HttpPost] // kägg till tom som tar emot
+        
+        [HttpPost] 
         public async Task<IActionResult> BackofficeRegisterIndex(UserRegisterViewModel userRegisterViewModel, IFormFile profilePicture)
         {
             if (ModelState.IsValid)

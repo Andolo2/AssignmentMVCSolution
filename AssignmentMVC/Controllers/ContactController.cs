@@ -37,7 +37,9 @@ namespace AssignmentMVC.Controllers
             }
             else
             {
+                ModelState.AddModelError("", "Contact request not sent.");
                 return View("ContactsIndex", model);
+
             }
         }
 

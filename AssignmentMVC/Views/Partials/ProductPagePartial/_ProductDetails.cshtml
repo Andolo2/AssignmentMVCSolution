@@ -23,14 +23,20 @@
 
                 @foreach (var product in Sixproducts)
                 {
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">
                     <div class="product-showcase-large">
+                        
                         <img src="~/images/FromForm/@product.ImageUrl" alt="@product.Title" />
+                        
                     </div>
+                    </a>
 
                     <div class="product-showcase-small">
                     @foreach (var fourproduct in fourProducts)
                     {                       
-                       <img src="~/images/FromForm/@fourproduct.ImageUrl" alt="@fourproduct.Title" />  
+                      
+                       <img src="~/images/FromForm/@fourproduct.ImageUrl" alt="@fourproduct.Title" />
+                            
                     }
                     </div>
                 }

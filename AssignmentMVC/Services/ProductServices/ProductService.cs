@@ -79,7 +79,7 @@ public class ProductService
 
 
 
-    public async Task<IEnumerable<ProductModel>> GetAllAsync()
+    public async Task<IEnumerable<ProductModel>> GetAllAsync() // Get all products
     {
         var products = new List<ProductModel>();
 
@@ -94,7 +94,7 @@ public class ProductService
         return products;
     }
 
-    public async Task<ProductModel> GetByIdAsync(int id)
+    public async Task<ProductModel> GetByIdAsync(int id) // Get by ID
     {
         var product = await _context.Products.FindAsync(id);
 
@@ -106,7 +106,7 @@ public class ProductService
         return product;
     }
 
-    public async Task<IEnumerable<ProductModel>> GetEightAsync()
+    public async Task<IEnumerable<ProductModel>> GetEightAsync() // Get eight products
     {
         var products = new List<ProductModel>();
 
@@ -121,7 +121,7 @@ public class ProductService
         return products;
     }
 
-    public async Task<IEnumerable<ProductModel>> GetTwoAsync()
+    public async Task<IEnumerable<ProductModel>> GetTwoAsync() // Get two products
     {
         var products = new List<ProductModel>();
 
@@ -136,7 +136,7 @@ public class ProductService
         return products;
     }
 
-    public async Task<IEnumerable<ProductModel>> GetSixAsync()
+    public async Task<IEnumerable<ProductModel>> GetSixAsync() // Get six products
     {
         var products = new List<ProductModel>();
 
@@ -151,7 +151,7 @@ public class ProductService
         return products;
     }
 
-    public async Task<IEnumerable<ProductModel>> GetThreeAsync()
+    public async Task<IEnumerable<ProductModel>> GetThreeAsync() // Get three products
     {
         var products = new List<ProductModel>();
 
@@ -166,7 +166,7 @@ public class ProductService
         return products;
     }
 
-    public async Task<IEnumerable<ProductModel>> GetFourAsync()
+    public async Task<IEnumerable<ProductModel>> GetFourAsync() // Get four products
     {
         var products = new List<ProductModel>();
 
@@ -181,7 +181,7 @@ public class ProductService
         return products;
     }
 
-    public async Task<IEnumerable<ProductModel>> GetFeaturedProductsAsync()
+    public async Task<IEnumerable<ProductModel>> GetFeaturedProductsAsync() // Get featured products
     {
         var products = await _context.Products
             .Where(p => p.IsFeatured)
@@ -200,7 +200,7 @@ public class ProductService
         return products;
     }
 
-    public async Task<IEnumerable<ProductModel>> GetNewProductsAsync()
+    public async Task<IEnumerable<ProductModel>> GetNewProductsAsync() // Get new products
     {
         var products = await _context.Products
             .Where(p => p.IsNew)
@@ -219,7 +219,7 @@ public class ProductService
         return products;
     }
 
-    public async Task<IEnumerable<ProductModel>> GetPopularProductsAsync()
+    public async Task<IEnumerable<ProductModel>> GetPopularProductsAsync() // Get popular products
     {
         var products = await _context.Products
             .Where(p => p.IsPopular)

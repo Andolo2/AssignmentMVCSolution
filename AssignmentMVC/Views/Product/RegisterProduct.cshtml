@@ -1,6 +1,13 @@
 ﻿@model ProductRegistrationViewModel
 
 <div class="container">
+
+    <div asp-validation-summary="ModelOnly" class="error"></div>
+
+
+
+
+
     <form enctype="multipart/form-data" asp-controller="Product" asp-action="Register" method="post">
         <div class="form-group">
             <label asp-for="Title" class="control-label"></label>

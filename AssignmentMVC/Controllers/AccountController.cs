@@ -22,7 +22,9 @@ namespace AssignmentMVC.Controllers
 
             if (user == null)
             {
-                return NotFound(); // User not found
+                ModelState.AddModelError("", "User not found");
+                return NotFound();
+                
             }
 
             return View(user); // Pass the user object to the view
@@ -30,10 +32,6 @@ namespace AssignmentMVC.Controllers
 
 
 
-        ////[Authorize]
-        ////public IActionResult AccountIndex()
-        ////{
-        ////    return View();
-        ////}
+       
     }
 }

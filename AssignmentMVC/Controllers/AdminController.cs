@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace AssignmentMVC.Controllers
 {
-    //[Authorize(Roles = "System Administrator")]
+   
     public class AdminController : Controller
     {
 
@@ -24,7 +24,7 @@ namespace AssignmentMVC.Controllers
 
 
 
-
+       
         public async Task<IActionResult> AdminIndex() // Get all Users from database and add to a list.
         {
             var users = await _userManager.Users.ToListAsync();
@@ -46,21 +46,50 @@ namespace AssignmentMVC.Controllers
             return View(usersWithRoles);
         }
 
+
+
+        //[HttpPost]
+        //public async Task<IActionResult> ChangeUserRoleAsync(string userId, string newRoleName) 
+        //{
+        //    bool result = await _auth.ChangeUserRoleAsync(userId, newRoleName);
+        //    if (result)
+        //    {
+        //        // Role change successful
+        //        return RedirectToAction("AdminIndex", "Admin"); 
+        //    }
+        //    else
+        //    {
+        //        ModelState.AddModelError("", "Change could not be applied");
+        //        return RedirectToAction("AdminIndex", "Admin"); 
+        //    }
+        //}
+
         [HttpPost]
-        public async Task<IActionResult> ChangeUserRoleAsync(string userId, string newRoleName) 
+        public async Task<IActionResult> ChangeUserRoleAsync(string userId, string newRoleName)
         {
             bool result = await _auth.ChangeUserRoleAsync(userId, newRoleName);
             if (result)
             {
                 // Role change successful
-                return RedirectToAction("AdminIndex", "Admin"); // Redirect to the admin page or appropriate action
+
+                // Retrieve the updated user
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user != null)
+                {
+                    // Add the updated role claim to the user's claims
+                    await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, newRoleName));
+                }
+
+                return RedirectToAction("AdminIndex", "Admin");
             }
             else
             {
-                // Role change failed
-                return RedirectToAction("AdminIndex", "Admin"); // Redirect to an error page or appropriate action
+                ModelState.AddModelError("", "Change could not be applied");
+                return RedirectToAction("AdminIndex", "Admin");
             }
         }
+
+
 
         [HttpPost]
         public async Task<IActionResult> DeleteUserAsync(string userId)
@@ -73,6 +102,7 @@ namespace AssignmentMVC.Controllers
             }
             else
             {
+                ModelState.AddModelError("", "User not found");
                 return RedirectToAction("AdminIndex");
 
             }

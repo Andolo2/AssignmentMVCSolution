@@ -15,10 +15,19 @@
 
                 @if (_signInmanager.IsSignedIn(User))
                 {
+                  
                     <a class="links" asp-controller="Account" asp-action="AccountIndex">@User.Identity?.Name</a>
                     <a class="links" asp-controller="Logout" asp-action="LogOutIndex">Logout</a>
 
                     var user = await _userManager.GetUserAsync(User);
+                    if (user != null)
+                    {
+                        var roles = await _userManager.GetRolesAsync(user);
+                        var userRole = roles.FirstOrDefault();
+
+                     
+                        Console.WriteLine($"User '{user.UserName}' is in role '{userRole}'.");
+                    }
                     if (await _userManager.IsInRoleAsync(user, "System Administrator"))
                     {
                         <a class="links" asp-controller="Product" asp-action="ProductIndex">All Products</a>

@@ -4,13 +4,14 @@ using AssignmentMVC.Repositories;
 using AssignmentMVC.Services.Authentication;
 using AssignmentMVC.Services.ProductServices;
 using AssignmentMVC.Services.ShowCaseServices;
-using AssignmentMVC.Services.UpToSaleService;
+using AssignmentMVC.Services.UpToSaleService;using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using static AssignmentMVC.Services.ShowCaseServices.ShowCaseService;
-using static System.Net.WebRequestMethods;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,8 +47,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
     x.User.RequireUniqueEmail = true;
 }
 
-).AddEntityFrameworkStores<IdentityContext>()
-   .AddClaimsPrincipalFactory<CustomClaimsPrincipalFactory>(); // Denerate displayname from claims.
+).AddEntityFrameworkStores<IdentityContext>();
+   //.AddClaimsPrincipalFactory<CustomClaimsPrincipalFactory>(); // Denerate displayname from claims.
 
 
 
@@ -61,32 +62,41 @@ builder.Services.ConfigureApplicationCookie(x =>
     {
         x.LoginPath = "/login";
         x.LogoutPath = "/";
-        x.AccessDeniedPath = "/denied";
+        x.AccessDeniedPath = "/Denied/DeniedIndex";
 
     });
 
 //register cookie service end
 
+
+
+//builder.Services.AddAuthorization(options =>
+//{
+
+//    options.AddPolicy("SystemAdminOnly", policy =>
+//    {
+//        policy.RequireRole("System Administrator");
+//    });
+//});
+
+
+
+
 var app = builder.Build();
-
-
-
 
 
 
 app.UseHsts();
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-
 app.UseRouting();
+app.UseAuthorization(); // Move this line after app.UseRouting()
+app.UseStaticFiles();
+app.UseAuthentication(); 
 
-app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=HomeIndex}/{id?}");
 
 app.Run();
-
-
-//BytMig123!

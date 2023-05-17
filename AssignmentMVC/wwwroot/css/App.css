@@ -302,10 +302,12 @@ header .toggle .btn-toggle:focus {
   text-decoration: none;
   display: block;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  max-width: 328px;
+  max-height: 345px;
 }
 .collection-item img {
   width: 100%;
-  height: 50%;
+  height: 80%;
 }
 .collection-item .body {
   display: flex;
@@ -315,7 +317,7 @@ header .toggle .btn-toggle:focus {
   margin-top: 10px;
   font-family: "Poppins", sans-serif;
   padding: 0 10px 10px 10px;
-  height: 50%;
+  height: 20%;
 }
 .collection-item .body > .info {
   padding: 2px;
@@ -340,6 +342,10 @@ header .toggle .btn-toggle:focus {
   text-decoration: none;
 }
 @media (min-width: 1200px) {
+  .collection-item .collection-item {
+    max-width: 328px;
+    max-height: 345px;
+  }
   .collection-item .fa-cart-plus {
     display: none;
   }
