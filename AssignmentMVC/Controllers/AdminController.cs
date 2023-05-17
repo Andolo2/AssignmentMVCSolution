@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace AssignmentMVC.Controllers
 {
-   
+    [Authorize(Roles = "System Administrator")]
     public class AdminController : Controller
     {
 

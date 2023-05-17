@@ -85,13 +85,13 @@ builder.Services.ConfigureApplicationCookie(x =>
 var app = builder.Build();
 
 
-
+;
 app.UseHsts();
 app.UseHttpsRedirection();
-app.UseRouting();
-app.UseAuthorization(); // Move this line after app.UseRouting()
 app.UseStaticFiles();
-app.UseAuthentication(); 
+app.UseRouting();
+app.UseAuthorization();
+
 
 
 

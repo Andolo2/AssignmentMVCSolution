@@ -13,7 +13,7 @@ using static AssignmentMVC.Services.ProductServices.ProductService;
 
 namespace AssignmentMVC.Controllers
 {
-    //[TypeFilter(typeof(CustomAuthorizationFilter), Arguments = new object[] { "System Administrator" })]
+    [TypeFilter(typeof(CustomAuthorizationFilter), Arguments = new object[] { "System Administrator" })]
 
     public class ProductController : Controller
     {
