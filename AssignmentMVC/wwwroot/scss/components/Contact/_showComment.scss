@@ -1,4 +1,9 @@
-﻿.comments-table {
+﻿.comment-headers{
+    text-align: center;
+}
+
+
+.comments-table {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,6 +19,10 @@
             .comment-line {
                 border: 1px solid;
                 padding: 20px !important;
+
+                & > td{
+                    padding: 2rem;
+                }
             }
         }
     }

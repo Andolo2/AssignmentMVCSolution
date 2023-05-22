@@ -1102,6 +1102,10 @@ header .toggle .btn-toggle:focus {
   width: 100px;
   height: 100px;
 }
+.comment-headers {
+  text-align: center;
+}
+
 .comments-table {
   display: flex;
   justify-content: center;
@@ -1113,4 +1117,7 @@ header .toggle .btn-toggle:focus {
 .comments-table .comment-table .comment-body .comment-line {
   border: 1px solid;
   padding: 20px !important;
+}
+.comments-table .comment-table .comment-body .comment-line > td {
+  padding: 2rem;
 }

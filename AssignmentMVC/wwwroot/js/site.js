@@ -22,14 +22,16 @@ SetHeight();
 
 /// Fixed footer END /////
 
-/// ContactFormValidation END /////
 
-    const menu = document.querySelector("#menu");
-    const toggleBtn = document.querySelector(".btn-toggle");
 
-    toggleBtn.addEventListener("click", () => {
-        menu.classList.toggle("open");
-    });
+// Evenntlistener for the menu in mobile
+
+const menu = document.querySelector("#menu");
+const toggleBtn = document.querySelector(".btn-toggle");
+
+toggleBtn.addEventListener("click", () => {
+    menu.classList.toggle("open");
+});
 
 
 
@@ -152,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.form-registration');
 
     form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Add this line to prevent form submission
+        event.preventDefault(); 
 
         const firstName = document.getElementById('register-firstname').value;
         const lastName = document.getElementById('register-lastname').value;
@@ -190,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
             errorMessageStreetName.textContent = '';
         }
 
-        if (postalcode.length !== 6) {
+        if (postalcode.length !== 5) {
             errorMessagePostalCode.textContent = 'Postal code must be 6 characters';
         } else {
             errorMessagePostalCode.textContent = '';
@@ -255,3 +257,47 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+// Validation for the product registration form
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('.register-product-form');
+
+    form.addEventListener('submit', function (event) {
+            const titleInput = document.getElementById('reg-prod-title').value;
+    const priceInput = document.getElementById('reg-prod-price').value;
+    const imageInput = document.getElementById('reg-prod-image').value;
+
+    const titleError = document.getElementById('reg-prod-title-error-message');
+    const priceError = document.getElementById('reg-prod-price-error-message');
+    const imageError = document.getElementById('reg-prod-image-error-message');
+
+    if (titleInput.trim() === '') {
+        titleError.textContent = 'Title is required.';
+    event.preventDefault();
+            } else {
+        titleError.textContent = '';
+            }
+
+    if (priceInput.trim() === '') {
+        priceError.textContent = 'Price is required.';
+        event.preventDefault();
+    } else if (!Number.isInteger(Number(priceInput))) {
+        priceError.textContent = 'Price must be a number..';
+        event.preventDefault();
+    } else {
+        priceError.textContent = '';
+    }
+
+       
+
+    if (imageInput.trim() === '') {
+        imageError.textContent = 'Image is required.';
+    event.preventDefault();
+            } else {
+        imageError.textContent = '';
+            }
+        });
+    });
+

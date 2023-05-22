@@ -10,8 +10,8 @@ namespace AssignmentMVC.Services.ShowCaseServices
         {
             new ShowCaseModel()
             {
-                Ingress = "NEW GOLDEN CHAIR EXLUSIVE",
-                Title = "Title should be here",
+                Ingress = "Welcome to bmarketo SHOP",
+                Title = "Exclusise chair gold Collection",
                 ImageUrl = "images/placeholders/625x647.jpg",
                 Button = new LinkButtonModel() {Content = "Shop now", Url = "/products"}
 

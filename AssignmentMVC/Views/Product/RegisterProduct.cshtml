@@ -8,21 +8,24 @@
 
 
 
-    <form enctype="multipart/form-data" asp-controller="Product" asp-action="Register" method="post">
+    <form enctype="multipart/form-data" asp-controller="Product" asp-action="Register" method="post" class="register-product-form">
         <div class="form-group">
             <label asp-for="Title" class="control-label"></label>
-            <input asp-for="Title" class="form-control" />
+            <input asp-for="Title" class="form-control" id="reg-prod-title" />
             <span asp-validation-for="Title" class="text-danger"></span>
+            <span id="reg-prod-title-error-message" class="error-message"></span>
         </div>
         <div class="form-group">
             <label asp-for="Price" class="control-label"></label>
-            <input asp-for="Price" class="form-control" />
+            <input asp-for="Price" class="form-control" id="reg-prod-price" />
             <span asp-validation-for="Price" class="text-danger"></span>
+            <span id="reg-prod-price-error-message" class="error-message"></span>
         </div>
         <div class="form-group">
             <label asp-for="Image" class="form-label">Image</label>
-            <input asp-for="Image" class="form-control" />
+            <input asp-for="Image" class="form-control" id="reg-prod-image" />
             <span asp-validation-for="Image" class="small text-danger"></span>>
+            <span id="reg-prod-image-error-message" class="error-message"></span>
         </div>
         <div class="form-group">
             <label>
