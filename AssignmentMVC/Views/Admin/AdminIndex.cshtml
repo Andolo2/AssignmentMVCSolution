@@ -35,6 +35,7 @@
                             <form asp-controller="Admin" asp-action="ChangeUserRole" method="post">
                                 <input type="hidden" name="userId" value="@user.User.Id" />
                                 <select name="newRoleName">
+                                    <option >Change role</option>
                                     <option value="User">User</option>
                                     <option value="System Administrator">System Administrator</option>
                                 </select>

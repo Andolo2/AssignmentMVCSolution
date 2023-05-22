@@ -70,14 +70,14 @@ builder.Services.ConfigureApplicationCookie(x =>
 
 
 
-//builder.Services.AddAuthorization(options =>
-//{
+builder.Services.AddAuthorization(options =>
+{
 
-//    options.AddPolicy("SystemAdminOnly", policy =>
-//    {
-//        policy.RequireRole("System Administrator");
-//    });
-//});
+    options.AddPolicy("SystemAdminOnly", policy =>
+    {
+        policy.RequireRole("System Administrator");
+    });
+});
 
 
 
@@ -85,7 +85,7 @@ builder.Services.ConfigureApplicationCookie(x =>
 var app = builder.Build();
 
 
-;
+
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();

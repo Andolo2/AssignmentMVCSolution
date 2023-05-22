@@ -13,8 +13,9 @@ using static AssignmentMVC.Services.ProductServices.ProductService;
 
 namespace AssignmentMVC.Controllers
 {
-    [TypeFilter(typeof(CustomAuthorizationFilter), Arguments = new object[] { "System Administrator" })]
+    [TypeFilter(typeof(CustomAuthorizationFilter), Arguments = new object[] { "System Administrator" })] // I had severe issues with the auth part, created a auth filter check the user roles.
 
+   
     public class ProductController : Controller
     {
         private readonly DataContexts _context;
@@ -47,6 +48,7 @@ namespace AssignmentMVC.Controllers
             return View();
         }
 
+        [Authorize(Roles = "System Administrator")]
         public IActionResult ProductIndex()
         {
             return View();
@@ -93,8 +95,8 @@ namespace AssignmentMVC.Controllers
         //    return View();
         //}
 
-        //[Authorize(Policy = "SystemAdminOnly")]
-        [Authorize(Roles = "System Administrator")]
+        [Authorize(Policy = "SystemAdminOnly")]
+       
         [HttpPost]
         public async Task<IActionResult> Register(ProductRegistrationViewModel productRegistrationViewModel, bool isNew, bool isPopular, bool isFeatured)
         {
