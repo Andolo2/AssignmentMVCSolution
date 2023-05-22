@@ -1,0 +1,20 @@
+﻿.comments-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .comment-table {
+        .comment-headers {
+            text-decoration: underline;
+        }
+
+        .comment-body {
+
+            .comment-line {
+                border: 1px solid;
+                padding: 20px !important;
+            }
+        }
+    }
+}

@@ -1,8 +1,9 @@
 ﻿using AssignmentMVC.Contexts;
 using AssignmentMVC.Models.Models;
 using AssignmentMVC.ViewModels.ContactViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace AssignmentMVC.Controllers
 {
@@ -48,6 +49,12 @@ namespace AssignmentMVC.Controllers
             return View();
         }
 
+        [Authorize(Policy = "SystemAdminOnly")]
+        public async Task<IActionResult> ShowAllComments()
+        {
+            var comments = await _contactContext.Contacts.ToListAsync();
+            return View("ShowAllComments", comments);
+        }
 
         public IActionResult ThankYou()
         {

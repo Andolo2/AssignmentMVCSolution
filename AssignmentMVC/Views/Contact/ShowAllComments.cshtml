@@ -1,0 +1,38 @@
+﻿@model List<ContactModel>
+
+<h1>All Comments</h1>
+
+@if (Model.Count == 0)
+{
+    <p>No coments in the database, check for errors </p>
+}
+else
+{
+   <div class="comments-table">
+        <table class="comment-table">
+            <thead>
+                <tr class="comment-headers">
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>Comment</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody class="comment-body">
+                @foreach (var comment in Model)
+                {
+                    <tr class="comment-line">
+                        <td>@comment.Name</td>
+                        <td>@comment.PhoneNumber</td>
+                        <td>@comment.Email</td>
+                        <td>@comment.Company</td>
+                        <td>@comment.Comment</td>
+                        <td>@comment.Timestamp</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+   </div>
+}
